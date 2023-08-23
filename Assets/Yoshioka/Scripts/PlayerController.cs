@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamagable
 {
     [Header("Playerの移動速度")]
     [SerializeField] private float playerSpeed;
+
+    [Header("Playerの体力")]
+    [SerializeField] private int maxHp;
+
+    private int hp;　//Playerの現在HP
 
     [Header("発射の間隔")]
     [SerializeField] private float interval;
@@ -18,6 +23,15 @@ public class PlayerController : MonoBehaviour
     [Header("通常弾のプレハブ")]
     [SerializeField] private GameObject normal_bullet;
 
+    [Header("UIのハートを制御するスクリプト")]
+    public HeartManager heartManager;
+
+
+    void Start()
+    {
+        hp = maxHp;
+        heartManager.SetHeart(maxHp,hp);
+    }
 
     void Update()
     {
@@ -47,6 +61,18 @@ public class PlayerController : MonoBehaviour
         if(timer > 0.0f)
         {
             timer -= Time.deltaTime;
+        }
+    }
+
+    public void AddDamage(int damage)
+    {
+        hp-=damage;
+
+        heartManager.SetHeart(maxHp,hp);
+
+        if(hp<=0)
+        {
+            //GameOver処理
         }
     }
 }

@@ -8,7 +8,7 @@ public class NormalBulletController : MonoBehaviour
     [SerializeField] private float bulletSpeed;
 
     [Header("威力")]
-    [SerializeField] private float power;
+    [SerializeField] private int power;
 
     [Header("弾が消えるまでの時間")]
     [SerializeField] private float duration;
