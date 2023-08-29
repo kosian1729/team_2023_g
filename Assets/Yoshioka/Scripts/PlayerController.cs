@@ -23,8 +23,13 @@ public class PlayerController : MonoBehaviour, IDamagable
     [Header("通常弾のプレハブ")]
     [SerializeField] private GameObject normal_bullet;
 
+    private GameObject[] bullets;
+
     [Header("UIのハートを制御するスクリプト")]
     public HeartManager heartManager;
+
+    [Header("Bulletを管理するスクリプト")]
+    public BulletManager bulletManager;
 
 
     void Start()
@@ -37,13 +42,14 @@ public class PlayerController : MonoBehaviour, IDamagable
     {
         Move();
         Attack();
+        Select();
     }
 
     void Move()
     {
-        //WASDもしくは矢印キーが入力されると、-1~1の整数値が返される。（方向指定用）
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        //WASDが入力されると、-1~1の整数値が返される。（方向指定用）
+        float x = Input.GetAxisRaw("AD");
+        float y = Input.GetAxisRaw("WS");
 
         //Playerを、入力に応じた方向へと移動させる。
         this.gameObject.transform.position += new Vector3(x*Time.deltaTime*playerSpeed,y*Time.deltaTime*playerSpeed);
@@ -52,10 +58,11 @@ public class PlayerController : MonoBehaviour, IDamagable
     void Attack()
     {
         // スペースキーを押している間、一定間隔でbulletを打ち続ける
-        if(Input.GetKey(KeyCode.Space) && timer <= 0.0f)　// 分岐条件変更
+        if((Input.GetKey(KeyCode.Space)||Input.GetKey(KeyCode.UpArrow)||Input.GetKey(KeyCode.DownArrow)) && (timer <= 0.0f) && (bulletManager.GetBulletNum()>0))
         {
-            Instantiate(normal_bullet, new Vector3(transform.position.x + offset_x,transform.position.y), Quaternion.Euler(0,0,-90));
-            timer = interval; // 間隔をセット
+            Instantiate(bulletManager.GetBulletObj(), new Vector3(transform.position.x + offset_x,transform.position.y), Quaternion.Euler(0,0,-90));
+            bulletManager.ChangeBulletNum(-1);
+            timer = bulletManager.GetBulletInterval(); // 間隔をセット
         }
         // タイマーの値を減らす
         if(timer > 0.0f)
@@ -64,6 +71,19 @@ public class PlayerController : MonoBehaviour, IDamagable
         }
     }
 
+    void Select()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            bulletManager.ChangeSlotNum(-1);
+        }
+        else if(Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            bulletManager.ChangeSlotNum(1);
+        }
+    }
+
+    //被ダメ時
     public void AddDamage(int damage)
     {
         hp-=damage;
