@@ -31,15 +31,21 @@ public class PlayerController : MonoBehaviour, IDamagable
     [Header("Bulletを管理するスクリプト")]
     public BulletManager bulletManager;
 
+    public Animator animator;
+
+    private bool stop;
 
     void Start()
     {
         hp = maxHp;
         heartManager.SetHeart(maxHp,hp);
+        //animator = transform.parent.gameObject.GetComponent<Animator>();
     }
 
     void Update()
     {
+        if(stop) return;
+
         Move();
         Attack();
         Select();
@@ -94,5 +100,15 @@ public class PlayerController : MonoBehaviour, IDamagable
         {
             //GameOver処理
         }
+    }
+
+    public void StopControll(bool _stop)
+    {
+        stop = _stop;
+    }
+
+    public void BeforeStageStart()
+    {
+        animator.SetTrigger("PlayerIN");
     }
 }

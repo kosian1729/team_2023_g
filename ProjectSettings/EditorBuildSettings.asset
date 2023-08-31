@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Yoshioka/Scenes/Title.unity
+    guid: d15766fc5f010d94d9aed1fe28f8e162
+  - enabled: 1
+    path: Assets/Yoshioka/Scenes/Menu.unity
+    guid: 33681bec003734245847464614f1b3ee
+  - enabled: 1
+    path: Assets/Yoshioka/Scenes/Stage0.unity
+    guid: b0377e4557efbe7429ecf95a87e1bb9d
+  - enabled: 1
+    path: Assets/Yoshioka/Scenes/Learn.unity
+    guid: 5c1602472439f574f84906944ef30c95
   m_configObjects: {}

@@ -4,12 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class BulletManager : MonoBehaviour
 {
-    [SerializeField]
     private int slotNum;　//現在のスロット番号
+
+    [HideInInspector]
     public BulletInfo[] bulletSlot;
+
+    public StageBulletInfo[] sbiList;
+
     public RectTransform frame;
     private Vector2 frameOriginalPos;
     public TextMeshProUGUI[] bulletNumText;
@@ -19,21 +24,51 @@ public class BulletManager : MonoBehaviour
         frameOriginalPos = frame.position;
 
         //Debug
-        SetBulletSlot(bulletSlot[0],bulletSlot[1],bulletSlot[2]);
+        SetBulletSlot(SearchStageBulletInfo(SceneManager.GetActiveScene().name));
     }
 
     //Stage開始時に設定される
-    public void SetBulletSlot(BulletInfo bullet_0,BulletInfo bullet_1,BulletInfo bullet_2)
+    public void _SetBulletSlot(BulletInfo bullet_0,BulletInfo bullet_1,BulletInfo bullet_2)
     {
+        
         bulletSlot[0] = bullet_0;　//基本的には通常弾が入る
         bulletSlot[1] = bullet_1;
         bulletSlot[2] = bullet_2;
 
-        bulletNumText[0].text = "×"+ bulletSlot[0].runTimeNum;
-        bulletNumText[1].text = "×"+ bulletSlot[1].runTimeNum;
-        bulletNumText[2].text = "×"+ bulletSlot[2].runTimeNum;
+        bulletNumText[0].text = "×"+ bulletSlot[0].num;
+        bulletNumText[1].text = "×"+ bulletSlot[1].num;
+        bulletNumText[2].text = "×"+ bulletSlot[2].num;
+
 
         slotNum = 0;
+    }
+
+    public void SetBulletSlot(StageBulletInfo sbi)
+    {
+        //弾の情報を格納
+        bulletSlot[0] = sbi.bullet_0;　//基本的には通常弾が入る
+        bulletSlot[1] = sbi.bullet_1;
+        bulletSlot[2] = sbi.bullet_2;
+
+        //弾ごとの初期装弾数を取得
+        bulletSlot[0].num = sbi.num_0;
+        bulletSlot[1].num = sbi.num_1;
+        bulletSlot[2].num = sbi.num_2;
+
+        //UI用　残弾数表示
+        bulletNumText[0].text = "×"+ bulletSlot[0].num;
+        bulletNumText[1].text = "×"+ bulletSlot[1].num;
+        bulletNumText[2].text = "×"+ bulletSlot[2].num;
+    }
+
+    public StageBulletInfo SearchStageBulletInfo(string _stageName)
+    {
+        foreach(StageBulletInfo sbi in sbiList)
+        {
+            if(sbi.stageName == _stageName) return sbi;
+        }
+
+        return sbiList[0];
     }
 
     public void ChangeSlotNum(int d)
@@ -73,34 +108,12 @@ public class BulletManager : MonoBehaviour
 
     public float GetBulletNum()
     {
-        return bulletSlot[slotNum].runTimeNum;
+        return bulletSlot[slotNum].num;
     }
 
     public void ChangeBulletNum(int a)
     {
-        bulletSlot[slotNum].runTimeNum += a;    //残弾数の加算（減算）
-        bulletNumText[slotNum].text = "×"+ bulletSlot[slotNum].runTimeNum;  //SlotのTextの更新
+        bulletSlot[slotNum].num += a;    //残弾数の加算（減算）
+        bulletNumText[slotNum].text = "×"+ bulletSlot[slotNum].num;  //SlotのTextの更新
     }
-}
-
-//Bulletの情報を格納するクラス
-[CreateAssetMenu]
-public class BulletInfo : ScriptableObject, ISerializationCallbackReceiver
-{
-    public string name;
-    public GameObject obj;
-    public Sprite sprite;
-    public float interval;
-
-    [Header("ステージ開始時の装弾数")]
-    public int initialNum;
-    [NonSerialized]
-    public int runTimeNum;  //Play中はこちらの値を動かす
-
-    public void OnAfterDeserialize()
-    {
-        runTimeNum = initialNum;
-    }
-
-    public void OnBeforeSerialize() { }
 }
