@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0e16f2a5a4ae7449e03f508d39a452, type: 3}
+  m_Name: SpecialBullet
+  m_EditorClassIdentifier: 
+  name: SpecialBullet
+  obj: {fileID: 3067496423060591401, guid: bd5c7afd2f2f87e41a5ffe02f64118b7, type: 3}
+  sprite: {fileID: 0}
+  interval: 0.2
+  num: 24
