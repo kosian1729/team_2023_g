@@ -27,22 +27,6 @@ public class BulletManager : MonoBehaviour
         SetBulletSlot(SearchStageBulletInfo(SceneManager.GetActiveScene().name));
     }
 
-    //Stage開始時に設定される
-    public void _SetBulletSlot(BulletInfo bullet_0,BulletInfo bullet_1,BulletInfo bullet_2)
-    {
-        
-        bulletSlot[0] = bullet_0;　//基本的には通常弾が入る
-        bulletSlot[1] = bullet_1;
-        bulletSlot[2] = bullet_2;
-
-        bulletNumText[0].text = "×"+ bulletSlot[0].num;
-        bulletNumText[1].text = "×"+ bulletSlot[1].num;
-        bulletNumText[2].text = "×"+ bulletSlot[2].num;
-
-
-        slotNum = 0;
-    }
-
     public void SetBulletSlot(StageBulletInfo sbi)
     {
         //弾の情報を格納
@@ -86,9 +70,9 @@ public class BulletManager : MonoBehaviour
         frame.position = new Vector2(frameOriginalPos.x + 140*slotNum, frameOriginalPos.y);
     }
 
-    public string GetBulletName()
+    public string GetBulletName(int n)
     {
-        return bulletSlot[slotNum].name;
+        return bulletSlot[n].name;
     }
 
     public GameObject GetBulletObj()
@@ -111,9 +95,14 @@ public class BulletManager : MonoBehaviour
         return bulletSlot[slotNum].num;
     }
 
-    public void ChangeBulletNum(int a)
+    public int GetSlotNum()
     {
-        bulletSlot[slotNum].num += a;    //残弾数の加算（減算）
-        bulletNumText[slotNum].text = "×"+ bulletSlot[slotNum].num;  //SlotのTextの更新
+        return slotNum;
+    }
+
+    public void ChangeBulletNum(int n,int _slotNum)
+    {
+        bulletSlot[_slotNum].num += n;    //残弾数の加算（減算）
+        bulletNumText[_slotNum].text = "×"+ bulletSlot[_slotNum].num;  //SlotのTextの更新
     }
 }

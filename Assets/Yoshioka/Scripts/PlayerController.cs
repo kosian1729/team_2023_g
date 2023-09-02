@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour, IDamagable
     [Header("Bulletを管理するスクリプト")]
     public BulletManager bulletManager;
 
+    [Header("GameOverイベント")]
+    public GameEvent GameOver;
+
     public Animator animator;
 
     private bool stop;
@@ -67,7 +70,7 @@ public class PlayerController : MonoBehaviour, IDamagable
         if((Input.GetKey(KeyCode.Space)||Input.GetKey(KeyCode.UpArrow)||Input.GetKey(KeyCode.DownArrow)) && (timer <= 0.0f) && (bulletManager.GetBulletNum()>0))
         {
             Instantiate(bulletManager.GetBulletObj(), new Vector3(transform.position.x + offset_x,transform.position.y), Quaternion.Euler(0,0,-90));
-            bulletManager.ChangeBulletNum(-1);
+            bulletManager.ChangeBulletNum(-1,bulletManager.GetSlotNum());
             timer = bulletManager.GetBulletInterval(); // 間隔をセット
         }
         // タイマーの値を減らす
@@ -99,6 +102,7 @@ public class PlayerController : MonoBehaviour, IDamagable
         if(hp<=0)
         {
             //GameOver処理
+            GameOver.Raise();
         }
     }
 

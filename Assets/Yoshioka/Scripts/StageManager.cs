@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -8,9 +10,14 @@ public class StageManager : MonoBehaviour
     public PlayerController playerController;
     public GameEvent BeforeStageStart;
     public GameObject playerInfo;   //UI
+    public Image blackScreen;  //暗転用
+    private Color screenColor;
 
     IEnumerator Start()
     {
+        screenColor = blackScreen.color;
+        screenColor.a = 0;
+        blackScreen.color = screenColor;
         //Cameraのスクロールを止める
         cameraScroll.PouseCameraScroll(true);
 
@@ -33,5 +40,33 @@ public class StageManager : MonoBehaviour
         cameraScroll.StartCoroutine("FadeIn",1.5f);
         playerController.StopControll(false);
         playerInfo.SetActive(true);
+    }
+
+    public void GameOver()
+    {        
+        //Playerの操作を不可にする
+        playerController.StopControll(true);
+
+        cameraScroll.StartCoroutine("FadeOut");
+
+
+        StartCoroutine("BlackOut");
+    }
+
+    IEnumerator BlackOut()
+    {
+        for(int i=0; i<200; i++)
+        {
+            if(screenColor.a <=1.0f)
+            {
+                screenColor.a += 0.02f;
+                blackScreen.color = screenColor;
+            }
+
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene("Title");
     }
 }

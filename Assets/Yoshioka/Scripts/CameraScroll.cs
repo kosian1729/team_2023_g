@@ -31,4 +31,17 @@ public class CameraScroll : MonoBehaviour
         }
         scrollSpeed = oriSpeed;
     }
+
+    public IEnumerator FadeOut()
+    {
+        float oriSpeed = scrollSpeed;
+        for(int i=0; i<200; i++)
+        {
+            scrollSpeed = scrollSpeed/2;
+            yield return new WaitForSeconds(0.02f);
+        }
+        
+        PouseCameraScroll(true);
+        scrollSpeed = oriSpeed;
+    }
 }

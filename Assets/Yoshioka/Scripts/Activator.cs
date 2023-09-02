@@ -8,19 +8,21 @@ using UnityEngine;
 ///</Summary>
 public class Activator : MonoBehaviour
 {
-    private EnemyController enemyController;
+    private GameObject obj;
 
     void Awake()
     {
-        enemyController = this.gameObject.GetComponent<EnemyController>();
-        enemyController.enabled = false;
+        obj = transform.GetChild(0).gameObject;
+        obj.SetActive(false);
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "SpawnArea")
         {
-            enemyController.enabled = true;
+            obj.SetActive(true);
+            transform.DetachChildren();
+            Destroy(this.gameObject);
         }
     }
 }
