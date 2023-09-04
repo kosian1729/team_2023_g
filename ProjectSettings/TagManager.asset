@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - SpawnArea
+  - EnemyBullet
+  - DespawnArea
+  - Item
+  - Clear
   layers:
   - Default
   - TransparentFX

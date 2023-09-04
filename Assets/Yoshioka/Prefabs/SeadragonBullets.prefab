@@ -1,0 +1,231 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1893795226476331337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3901876464854659526}
+  m_Layer: 0
+  m_Name: SeadragonBullets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3901876464854659526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893795226476331337}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 132.457, y: -0.87, z: -0.17970775}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2241042914303592204}
+  - {fileID: 530046469813393841}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3293765247921801134
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3901876464854659526}
+    m_Modifications:
+    - target: {fileID: 2918615794187487472, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: power
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918615794187487472, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: bulletSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9990483
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.043619405
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166298344918644305, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166298344918644305, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_Color.g
+      value: 0.06630713
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166298344918644305, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436308121985945552, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_Name
+      value: SeadragonBullet (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+--- !u!4 &530046469813393841 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+  m_PrefabInstance: {fileID: 3293765247921801134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3888608509733001491
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3901876464854659526}
+    m_Modifications:
+    - target: {fileID: 2918615794187487472, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: power
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2918615794187487472, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: bulletSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9990483
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.043619405
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166298344918644305, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166298344918644305, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_Color.g
+      value: 0.06630713
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166298344918644305, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436308121985945552, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+      propertyPath: m_Name
+      value: SeadragonBullet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+--- !u!4 &2241042914303592204 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3093643631887293983, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
+  m_PrefabInstance: {fileID: 3888608509733001491}
+  m_PrefabAsset: {fileID: 0}
