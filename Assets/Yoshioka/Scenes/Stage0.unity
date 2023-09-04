@@ -6611,6 +6611,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2366233423942280036, guid: 8d77690144affd5459bdf68f40751d46, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1629927911}
+    - target: {fileID: 2366233423942280036, guid: 8d77690144affd5459bdf68f40751d46, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8626785144879872173, guid: 8d77690144affd5459bdf68f40751d46, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -6683,6 +6691,10 @@ PrefabInstance:
       propertyPath: frame
       value: 
       objectReference: {fileID: 1166827843}
+    - target: {fileID: 9012976805441999943, guid: e130512909f55f94c99f56dc029609db, type: 3}
+      propertyPath: flameMove
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9012976805441999943, guid: e130512909f55f94c99f56dc029609db, type: 3}
       propertyPath: bulletNumText.Array.data[0]
       value: 
