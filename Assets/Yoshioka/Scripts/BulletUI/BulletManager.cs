@@ -19,6 +19,7 @@ public class BulletManager : MonoBehaviour
     private Vector2 frameOriginalPos;
     public TextMeshProUGUI[] bulletNumText;
 
+
     void Start()
     {
         frameOriginalPos = frame.position;
@@ -67,7 +68,7 @@ public class BulletManager : MonoBehaviour
             slotNum = 2;
         }
 
-        frame.position = new Vector2(frameOriginalPos.x + 140*slotNum, frameOriginalPos.y);
+        frame.position = new Vector2(frameOriginalPos.x + 140 * slotNum, frameOriginalPos.y);
     }
 
     public string GetBulletName(int n)
