@@ -20,6 +20,9 @@ public class SeahouseController : MonoBehaviour, IDamagable
     [Header("攻撃間隔")]
     [SerializeField] private float interval;
 
+    [Header("プレイヤーをねらって打つか")]
+    [SerializeField] private bool isAim;
+
     private Transform player;
 
     private int phase;
@@ -76,8 +79,16 @@ public class SeahouseController : MonoBehaviour, IDamagable
 
     void Attack()
     {
-        Vector3 direction = player.position - this.transform.position;
-        Instantiate(bullet,this.transform.position,Quaternion.FromToRotation(Vector3.up,direction));
+        if(isAim)
+        {
+            Vector3 direction = player.position - this.transform.position;
+            Instantiate(bullet,this.transform.position,Quaternion.FromToRotation(Vector3.up,direction));
+        }
+        else
+        {
+            Instantiate(bullet,this.transform.position,Quaternion.Euler(0,0,Random.Range(85.0f,95.0f)));
+        }
+
     }
 
 

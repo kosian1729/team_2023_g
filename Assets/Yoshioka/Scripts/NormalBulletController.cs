@@ -13,6 +13,9 @@ public class NormalBulletController : MonoBehaviour
     [Header("弾が消えるまでの時間")]
     [SerializeField] private float duration;
 
+    [Header("衝突時パーティクル")]
+    [SerializeField] private GameObject particleObj;
+
     private float timer;　//弾の生存時間
 
     void Update()
@@ -33,6 +36,7 @@ public class NormalBulletController : MonoBehaviour
         if(other.tag == "Enemy")
         {
             other.GetComponent<IDamagable>().AddDamage(power);
+            Instantiate(particleObj,transform.position,Quaternion.identity);
             Destroy(this.gameObject);
         }
 
