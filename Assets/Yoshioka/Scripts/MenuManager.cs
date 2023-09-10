@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public GameObject storyPanel;
+    public GameObject optionPanel;
 
     public void Click_Story()
     {
@@ -17,8 +18,19 @@ public class MenuManager : MonoBehaviour
         storyPanel.SetActive(false);
     }
 
+    public void Click_Option()
+    {
+        optionPanel.SetActive(true);
+    }
+
+    public void Cancel_Option()
+    {
+        optionPanel.SetActive(false);
+    }
+
     public void Click_Play(int num)
     {
+        AudioManager.Instance.StopBGM();
         SceneManager.LoadScene("Stage"+num);
     }
 

@@ -15,6 +15,8 @@ public class StageManager : MonoBehaviour
 
     IEnumerator Start()
     {
+        AudioManager.Instance.PlayBGM("BGM調査ループ");
+
         screenColor = blackScreen.color;
         screenColor.a = 0;
         blackScreen.color = screenColor;

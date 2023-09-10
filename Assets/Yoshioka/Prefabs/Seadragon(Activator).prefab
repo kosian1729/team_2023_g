@@ -277,6 +277,7 @@ MonoBehaviour:
   hitPower: 1
   bullet: {fileID: 1893795226476331337, guid: 08c8975ca7a081744b7cd5744179fc3e, type: 3}
   interval: 1.8
+  isAim: 1
 --- !u!4 &1744806266742183380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5643404602992719237, guid: 2bf1ec5b86852504480ed51837c804e5, type: 3}

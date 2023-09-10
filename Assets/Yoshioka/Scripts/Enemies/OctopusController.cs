@@ -18,6 +18,9 @@ public class OctopusController : MonoBehaviour, IDamagable
     [SerializeField] private float x;
     [SerializeField] private float y;
 
+    [Header("ドロップアイテム")]
+    [SerializeField] private GameObject dropItem;
+
     private float timer;    //スポーンしてからの経過時間
 
     void Start()
@@ -47,6 +50,10 @@ public class OctopusController : MonoBehaviour, IDamagable
         hp-=damage;
         if(hp<=0)
         {
+            if(dropItem)
+            {
+                Instantiate(dropItem,transform.position,Quaternion.identity);
+            } 
             //死亡時の演出などをつけるならここ
             Destroy(this.gameObject);
         }

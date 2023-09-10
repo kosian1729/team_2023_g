@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IDamagable
 {
+    private Camera cam;
+    private GameObject animPosObj;
+
     [Header("Playerの移動速度")]
     [SerializeField] private float playerSpeed;
 
@@ -40,6 +43,8 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     void Start()
     {
+        cam = Camera.main;
+        animPosObj = transform.parent.gameObject;
         hp = maxHp;
         heartManager.SetHeart(maxHp,hp);
         //animator = transform.parent.gameObject.GetComponent<Animator>();
@@ -54,14 +59,22 @@ public class PlayerController : MonoBehaviour, IDamagable
         Select();
     }
 
+    //Playerを、入力に応じた方向へと移動させる。
     void Move()
     {
         //WASDが入力されると、-1~1の整数値が返される。（方向指定用）
         float x = Input.GetAxisRaw("AD");
         float y = Input.GetAxisRaw("WS");
 
-        //Playerを、入力に応じた方向へと移動させる。
-        this.gameObject.transform.position += new Vector3(x*Time.deltaTime*playerSpeed,y*Time.deltaTime*playerSpeed);
+        //カメラの端を超えている時、プレイヤーがはみ出ないようにする。
+        var currentPos = transform.localPosition + new Vector3(x*Time.deltaTime*playerSpeed,y*Time.deltaTime*playerSpeed);
+        var gap = animPosObj.transform.localPosition;
+
+        currentPos.y = Mathf.Clamp(currentPos.y, -cam.orthographicSize-gap.y, cam.orthographicSize-gap.y);
+        currentPos.x = Mathf.Clamp(currentPos.x, -cam.orthographicSize * 1920/1080 -gap.x, cam.orthographicSize * 1920/1080 -gap.x);
+
+        transform.localPosition = currentPos;
+        Debug.Log(transform.localPosition);
     }
 
     void Attack()
