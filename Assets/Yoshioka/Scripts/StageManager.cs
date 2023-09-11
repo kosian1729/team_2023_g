@@ -54,6 +54,16 @@ public class StageManager : MonoBehaviour
 
         StartCoroutine("BlackOut");
     }
+     
+    public void Boss()
+    {
+        playerController.StopControll(true);
+       
+        cameraScroll.PouseCameraScroll(true);
+
+
+    }
+
 
     IEnumerator BlackOut()
     {

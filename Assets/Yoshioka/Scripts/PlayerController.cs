@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour, IDamagable
     [Header("GameOverイベント")]
     public GameEvent GameOver;
 
+    [Header("Bossイベント")]
+    public GameEvent Boss;
+
     public Animator animator;
 
     private bool stop;
@@ -74,7 +77,7 @@ public class PlayerController : MonoBehaviour, IDamagable
         currentPos.x = Mathf.Clamp(currentPos.x, -cam.orthographicSize * 1920/1080 -gap.x, cam.orthographicSize * 1920/1080 -gap.x);
 
         transform.localPosition = currentPos;
-        Debug.Log(transform.localPosition);
+        
     }
 
     void Attack()
@@ -127,5 +130,13 @@ public class PlayerController : MonoBehaviour, IDamagable
     public void BeforeStageStart()
     {
         animator.SetTrigger("PlayerIN");
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "BossArea")
+        {
+            Boss.Raise();
+        }
     }
 }
