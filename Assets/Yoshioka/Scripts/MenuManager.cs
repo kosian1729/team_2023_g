@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject storyPanel;
+    public Animator canvasAnim;
     public GameObject optionPanel;
 
     public void Click_Story()
     {
-        storyPanel.SetActive(true);
+        canvasAnim.SetTrigger("SelectStory");
     }
 
     public void Cancel_StoryPanel()
     {
-        storyPanel.SetActive(false);
+        canvasAnim.SetTrigger("CancelStory");
     }
 
     public void Click_Option()
@@ -28,10 +28,10 @@ public class MenuManager : MonoBehaviour
         optionPanel.SetActive(false);
     }
 
-    public void Click_Play(int num)
+    public void Click_Play(string name)
     {
         AudioManager.Instance.StopBGM();
-        SceneManager.LoadScene("Stage"+num);
+        SceneManager.LoadScene("Stage"+name);
     }
 
     public void Click_Learn()
