@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d459dd773f84a8b43889a0e46e6abf78, type: 3}
-  m_Name: Null
+  m_Name: StageTemplate
   m_EditorClassIdentifier: 
-  stageName: Null
+  stageName: StageTemplate
   bullet_0: {fileID: 11400000, guid: 2e3e246144906874fa8ee41b6121148d, type: 2}
-  num_0: 0
-  bullet_1: {fileID: 11400000, guid: 2e3e246144906874fa8ee41b6121148d, type: 2}
-  num_1: 0
-  bullet_2: {fileID: 11400000, guid: 2e3e246144906874fa8ee41b6121148d, type: 2}
-  num_2: 0
+  num_0: 99
+  bullet_1: {fileID: 11400000, guid: b6a74fabeaa474e42ae1f65eb33f7f04, type: 2}
+  num_1: 99
+  bullet_2: {fileID: 11400000, guid: ed1841c7ca9ec50439729b6acd03793d, type: 2}
+  num_2: 99

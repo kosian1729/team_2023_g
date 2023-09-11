@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7779596950997771220}
   - component: {fileID: 3562956758809296830}
   m_Layer: 0
-  m_Name: Item_SpecialBullet15
+  m_Name: Item_SpecialBullet45
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletManager: {fileID: 0}
   itemName: SpecialBullet
-  num: 15
+  num: 45
 --- !u!1 &5160579932495768419
 GameObject:
   m_ObjectHideFlags: 0
