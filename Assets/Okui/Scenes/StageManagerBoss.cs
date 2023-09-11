@@ -4,31 +4,31 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class StageManager : MonoBehaviour
+public class StageManagerBoss: MonoBehaviour
 {
     public CameraScroll cameraScroll;
     public PlayerController playerController;
     public GameEvent BeforeStageStart;
     public GameObject playerInfo;   //UI
-    public Image blackScreen;  //æš—è»¢ç”¨
+    public Image blackScreen;  //ˆÃ“]—p
     private Color screenColor;
 
     IEnumerator Start()
     {
-        AudioManager.Instance.PlayBGM("BGMèª¿æŸ»ãƒ«ãƒ¼ãƒ—");
+        AudioManager.Instance.PlayBGM("BGM’²¸ƒ‹[ƒv");
 
         screenColor = blackScreen.color;
         screenColor.a = 0;
         blackScreen.color = screenColor;
-        //Cameraã®ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã‚’æ­¢ã‚ã‚‹
+        //Camera‚ÌƒXƒNƒ[ƒ‹‚ğ~‚ß‚é
         cameraScroll.PouseCameraScroll(true);
 
-        //Playerã®æ“ä½œã‚’ä¸å¯ã«ã™ã‚‹
+        //Player‚Ì‘€ì‚ğ•s‰Â‚É‚·‚é
         playerController.StopControll(true);
 
         playerInfo.SetActive(false);
 
-        //BeforeStageStartã‚’Ristenã—ã¦ã„ã‚‹ã‚‚ã®ã‚’å®Ÿè¡Œã™ã‚‹
+        //BeforeStageStart‚ğRisten‚µ‚Ä‚¢‚é‚à‚Ì‚ğÀs‚·‚é
         BeforeStageStart.Raise();
 
         yield return new WaitForSeconds(3.8f);
@@ -39,14 +39,14 @@ public class StageManager : MonoBehaviour
     public void StartStage()
     {
         cameraScroll.PouseCameraScroll(false);
-        cameraScroll.StartCoroutine("FadeIn",1.5f);
+        cameraScroll.StartCoroutine("FadeIn", 1.5f);
         playerController.StopControll(false);
         playerInfo.SetActive(true);
     }
 
     public void GameOver()
-    {        
-        //Playerã®æ“ä½œã‚’ä¸å¯ã«ã™ã‚‹ã€‚
+    {
+        //Player‚Ì‘€ì‚ğ•s‰Â‚É‚·‚é
         playerController.StopControll(true);
 
         cameraScroll.StartCoroutine("FadeOut");
@@ -57,9 +57,9 @@ public class StageManager : MonoBehaviour
 
     IEnumerator BlackOut()
     {
-        for(int i=0; i<200; i++)
+        for (int i = 0; i < 200; i++)
         {
-            if(screenColor.a <=1.0f)
+            if (screenColor.a <= 1.0f)
             {
                 screenColor.a += 0.02f;
                 blackScreen.color = screenColor;
