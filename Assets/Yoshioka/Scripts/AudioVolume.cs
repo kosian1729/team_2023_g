@@ -19,8 +19,8 @@ public class AudioVolume : MonoBehaviour
 
         if(!PlayerPrefs.HasKey("volume_BGM"))
         {
-            PlayerPrefs.SetFloat("volume_BGM",5);
-            PlayerPrefs.SetFloat("volume_SE",5);
+            PlayerPrefs.SetFloat("volume_BGM",2);
+            PlayerPrefs.SetFloat("volume_SE",2);
             PlayerPrefs.Save();
         }
 
@@ -62,9 +62,9 @@ public class AudioVolume : MonoBehaviour
     public float ValueToVolume(float value)
     {
         //5段階補正
-        value /= 5;
+        value = value*7-6;
         //-80~0に変換
-        var volume = Mathf.Clamp(Mathf.Log10(value) * 20f,-80f,0f);
+        var volume = Mathf.Clamp(Mathf.Log10(value*0.01f) * 20f,-80f,0f);
         return volume;
     }
 }
