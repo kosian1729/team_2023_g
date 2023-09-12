@@ -15,18 +15,10 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     private int hp;　//Playerの現在HP
 
-    [Header("発射の間隔")]
-    [SerializeField] private float interval;
-
     private float timer;　//弾の発射間隔用のタイマー
 
     [Header("発射位置")]
     [SerializeField] private float offset_x;
-
-    [Header("通常弾のプレハブ")]
-    [SerializeField] private GameObject normal_bullet;
-
-    private GameObject[] bullets;
 
     [Header("UIのハートを制御するスクリプト")]
     public HeartManager heartManager;
@@ -85,6 +77,8 @@ public class PlayerController : MonoBehaviour, IDamagable
         // スペースキーを押している間、一定間隔でbulletを打ち続ける
         if((Input.GetKey(KeyCode.Space)||Input.GetKey(KeyCode.UpArrow)||Input.GetKey(KeyCode.DownArrow)) && (timer <= 0.0f) && (bulletManager.GetBulletNum()>0))
         {
+            AudioManager.Instance.PlaySE("SE攻撃");
+
             Instantiate(bulletManager.GetBulletObj(), new Vector3(transform.position.x + offset_x,transform.position.y), Quaternion.Euler(0,0,-90));
             bulletManager.ChangeBulletNum(-1,bulletManager.GetSlotNum());
             timer = bulletManager.GetBulletInterval(); // 間隔をセット
