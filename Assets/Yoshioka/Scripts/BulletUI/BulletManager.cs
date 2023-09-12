@@ -44,6 +44,24 @@ public class BulletManager : MonoBehaviour
         bulletNumText[0].text = "×"+ bulletSlot[0].num;
         bulletNumText[1].text = "×"+ bulletSlot[1].num;
         bulletNumText[2].text = "×"+ bulletSlot[2].num;
+
+        if(sbi.isInfinity_0)
+        {
+            bulletSlot[0].num = 9999;
+            bulletNumText[0].text = "×" + "∞";
+        }
+
+        if(sbi.isInfinity_1)
+        {
+            bulletSlot[1].num = 9999;
+            bulletNumText[1].text = "×" + "∞";
+        }
+
+        if(sbi.isInfinity_2)
+        {
+            bulletSlot[2].num = 9999;
+            bulletNumText[2].text = "×" + "∞";
+        }
     }
 
     public StageBulletInfo SearchStageBulletInfo(string _stageName)
@@ -103,6 +121,9 @@ public class BulletManager : MonoBehaviour
 
     public void ChangeBulletNum(int n,int _slotNum)
     {
+        //無限化されている場合は弾を減らさない。
+        if(bulletSlot[_slotNum].num == 9999) return;
+
         bulletSlot[_slotNum].num += n;    //残弾数の加算（減算）
         bulletNumText[_slotNum].text = "×"+ bulletSlot[_slotNum].num;  //SlotのTextの更新
     }

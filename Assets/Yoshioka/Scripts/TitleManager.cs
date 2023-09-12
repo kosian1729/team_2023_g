@@ -11,13 +11,15 @@ public class TitleManager : MonoBehaviour
 
     void Start()
     {
-        AudioManager.Instance.PlayBGM("BGM深捜ループ");
+        AudioManager.Instance.PlayBGM_FromIntroToLoop("BGM深捜頭","BGM深捜ループ");
     }
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Return))
         {
+            AudioManager.Instance.PlaySE("SEセレクト");
+
             startTextAnim.SetTrigger("LoadScene");
             isEnter = true;
             timer = 0;
@@ -28,7 +30,7 @@ public class TitleManager : MonoBehaviour
             timer+=Time.deltaTime;
         }
 
-        if(timer>1.5f)
+        if(timer>0.3f)
         {
             SceneManager.LoadScene("Menu");
         }
