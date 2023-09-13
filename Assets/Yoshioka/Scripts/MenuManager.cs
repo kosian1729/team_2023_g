@@ -31,7 +31,7 @@ public class MenuManager : MonoBehaviour
     public void Click_Play(string name)
     {
         AudioManager.Instance.StopBGM();
-        SceneManager.LoadScene("Stage"+name);
+        SceneManager.LoadScene(name);
     }
 
     public void Click_Learn()
