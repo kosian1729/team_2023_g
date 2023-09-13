@@ -350,7 +350,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30B9\u30C8\u30FC\u30EA\u30FC1"
+  m_text: "\u30D7\u30ED\u30ED\u30FC\u30B0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 666d90899ef53a24d8cec587714de430, type: 2}
   m_sharedMaterial: {fileID: -8710932741730506980, guid: 666d90899ef53a24d8cec587714de430, type: 2}
@@ -571,7 +571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 94936269}
   m_Layer: 5
-  m_Name: Story1
+  m_Name: Prologue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1451,7 +1451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 439584803}
   m_Layer: 5
-  m_Name: Story2
+  m_Name: Story1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3696,7 +3696,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30B9\u30C8\u30FC\u30EA\u30FC2"
+  m_text: "\u30B9\u30C8\u30FC\u30EA\u30FC1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 666d90899ef53a24d8cec587714de430, type: 2}
   m_sharedMaterial: {fileID: -8710932741730506980, guid: 666d90899ef53a24d8cec587714de430, type: 2}
@@ -4046,13 +4046,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1961235118}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: Click_Play
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Stage0
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1596913385
@@ -4764,7 +4764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1984756913}
   m_Layer: 5
-  m_Name: Story3
+  m_Name: Story2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4916,7 +4916,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30B9\u30C8\u30FC\u30EA\u30FC3"
+  m_text: "\u30B9\u30C8\u30FC\u30EA\u30FC2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 666d90899ef53a24d8cec587714de430, type: 2}
   m_sharedMaterial: {fileID: -8710932741730506980, guid: 666d90899ef53a24d8cec587714de430, type: 2}
@@ -5469,7 +5469,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 0
+          m_StringArgument: Prologue
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2135404305
