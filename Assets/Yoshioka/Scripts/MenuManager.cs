@@ -8,6 +8,16 @@ public class MenuManager : MonoBehaviour
     public Animator canvasAnim;
     public GameObject optionPanel;
 
+    void Start()
+    {
+        //BGM再生中でなければ
+        if(!AudioManager.Instance.BGM_audioSource.isPlaying)
+        {
+           AudioManager.Instance.PlayBGM_FromIntroToLoop("BGM深捜頭","BGM深捜ループ"); 
+        }
+
+    }
+
     public void Click_Story()
     {
         canvasAnim.SetTrigger("SelectStory");

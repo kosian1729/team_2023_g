@@ -39,6 +39,7 @@ public class PrologueManager : MonoBehaviour
     void PhaseEnd()
     {
         dialogueManager.OnEndLog = null;
+
         backGround.DOFade(0,2.0f).SetEase(Ease.OutSine).OnComplete(() =>
         {
             StartCoroutine(EndCoroutine());
@@ -47,6 +48,9 @@ public class PrologueManager : MonoBehaviour
 
     IEnumerator EndCoroutine()
     {
+        //Flag
+        PlayerDataManager.Instance.SetIsClear("Prologue_Clear",true);
+        
         yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene("Menu");
     }
