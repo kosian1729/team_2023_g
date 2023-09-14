@@ -73,9 +73,9 @@ public class DialogueManager : MonoBehaviour
     {
         if(!isDialogue) return;
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            //文字を生成中にスペースキーを押されたら、文字をすべて表示する。
+            //文字を生成中にスペースキー(or左クリック)を押されたら、文字をすべて表示する。
             if(typeWriteCoroutine != null)
             {
                 StopCoroutine(typeWriteCoroutine);
