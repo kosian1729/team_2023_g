@@ -1,49 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using System;
 
 public class PlayerDataManager : SingletonMonoBehaviour<PlayerDataManager>
 {
-    [SerializeField]
     private PlayerData playerData;
 
     public void Awake()
     {
+        playerData = new PlayerData();
         Load();
-        Application.quitting += Save;
+    }
+
+    void OnApplicationQuit()
+    {
+        Debug.Log("Save is succesed");
+        Save();
     }
 
     public void Save()
     {
-        playerData.Save();
+        var data = JsonUtility.ToJson(playerData);
+
+        Debug.Log(data);
+        PlayerPrefs.SetString("PlayerData", data);
     }
 
     public void Load()
     {
-        playerData.Load();
-    }
-
-    public Flag[] GetFlags()
-    {
-        return playerData.flags;
-    }
-
-    public Flag GetFlag(int num)
-    {
-        return playerData.flags[num];
-    }
-
-    public void SetIsClear(string _name, bool _isClear)
-    {
-        Flag flag = Array.Find(playerData.flags,_flag => _flag.name == _name);
-
-        if(flag == null)
+        if(PlayerPrefs.HasKey("PlayerData"))
         {
-            Debug.Log(flag.name + "という名前のフラグは存在しません。");
-            return;
-        }
+            var data = PlayerPrefs.GetString("PlayerData");
 
-        flag.isClear = _isClear;
+            Debug.Log(data);
+            playerData = JsonUtility.FromJson<PlayerData>(data);        
+        }
+    }
+
+    public void Reset()
+    {
+        PlayerPrefs.DeleteKey("PlayerData");
+        playerData.InitData();
+    }
+
+    public bool GetFlag(string flagName)
+    {
+        return playerData.GetFlag(flagName);
+    }
+
+    public void SetFlag(string flagName, bool state)
+    {
+        playerData.SetFlag(flagName,state);
     }
 }

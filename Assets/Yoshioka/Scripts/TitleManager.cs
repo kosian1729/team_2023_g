@@ -7,7 +7,7 @@ public class TitleManager : MonoBehaviour
 {
     public Animator startTextAnim;
     private float timer;
-    private bool isEnter;
+    private bool isClick;
 
     void Start()
     {
@@ -16,16 +16,16 @@ public class TitleManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetMouseButtonDown(0))
         {
             AudioManager.Instance.PlaySE("SEセレクト");
 
             startTextAnim.SetTrigger("LoadScene");
-            isEnter = true;
+            isClick = true;
             timer = 0;
         }
 
-        if(isEnter)
+        if(isClick)
         {
             timer+=Time.deltaTime;
         }

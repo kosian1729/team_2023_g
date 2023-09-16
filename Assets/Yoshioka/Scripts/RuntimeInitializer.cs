@@ -11,6 +11,9 @@ public class RuntimeInitializer
 
         var playerDataManager = GameObject.Instantiate( Resources.Load( "PlayerDataManager"));
         GameObject.DontDestroyOnLoad( playerDataManager );
+
+        var loadingManager = GameObject.Instantiate( Resources.Load( "LoadingManager"));
+        GameObject.DontDestroyOnLoad( loadingManager );
     }
 
 } // class RuntimeInitializer

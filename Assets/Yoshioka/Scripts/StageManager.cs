@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
@@ -10,16 +11,15 @@ public class StageManager : MonoBehaviour
     public PlayerController playerController;
     public GameEvent BeforeStageStart;
     public GameObject playerInfo;   //UI
-    public Image blackScreen;  //暗転用
+    public CanvasGroup blackScreen;  //暗転用
     private Color screenColor;
 
     IEnumerator Start()
     {
         AudioManager.Instance.PlayBGM_FromIntroToLoop("BGM調査頭","BGM調査ループ");
 
-        screenColor = blackScreen.color;
-        screenColor.a = 0;
-        blackScreen.color = screenColor;
+        //blackScreenを透明にする
+        blackScreen.alpha = 0;
         //Cameraのスクロールを止める
         cameraScroll.PouseCameraScroll(true);
 
@@ -46,13 +46,11 @@ public class StageManager : MonoBehaviour
 
     public void GameOver()
     {        
-        //Playerの操作を不可にする。
-        playerController.StopControll(true);
-
         cameraScroll.StartCoroutine("FadeOut");
 
+        AudioManager.Instance.PlayBGM("BGMゲームオーバー",0.5f);
 
-        StartCoroutine("BlackOut");
+        blackScreen.DOFade(0.8f,2.0f);
     }
      
     public void Boss()
@@ -60,23 +58,21 @@ public class StageManager : MonoBehaviour
         playerController.StopControll(true);
        
         cameraScroll.PouseCameraScroll(true);
+    }
 
+    public void Click_Retry()
+    {
+        LoadingManager.Instance.LoadScene("Stage0",2.0f);
+    }
 
+    public void Click_Back()
+    {
+        LoadingManager.Instance.LoadScene("Title",2.0f);
     }
 
 
     IEnumerator BlackOut()
     {
-        for(int i=0; i<200; i++)
-        {
-            if(screenColor.a <=1.0f)
-            {
-                screenColor.a += 0.02f;
-                blackScreen.color = screenColor;
-            }
-
-            yield return new WaitForSeconds(0.02f);
-        }
 
         yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene("Title");
