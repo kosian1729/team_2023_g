@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour, IDamagable
 {
@@ -34,12 +36,18 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     public Animator animator;
 
+    private Image damagePanel;
+
     private bool stop;
 
     void Start()
     {
         cam = Camera.main;
         animPosObj = transform.parent.gameObject;
+
+        damagePanel = GameObject.Find("DamagePanel").GetComponent<Image>();
+        damagePanel.color = Color.clear;
+
         hp = maxHp;
         heartManager.SetHeart(maxHp,hp);
         //animator = transform.parent.gameObject.GetComponent<Animator>();
@@ -109,10 +117,16 @@ public class PlayerController : MonoBehaviour, IDamagable
 
         heartManager.SetHeart(maxHp,hp);
 
+        damagePanel.color = new Color(0.8f,0f,0f,0.8f);
+        damagePanel.DOFade(0,0.3f).SetEase(Ease.InQuad);
+
+
         if(hp<=0)
         {
             //GameOver処理
             GameOver.Raise();
+
+            this.gameObject.SetActive(false);
         }
     }
 

@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Yoshioka/Scenes/Title.unity
     guid: d15766fc5f010d94d9aed1fe28f8e162
   - enabled: 1
@@ -23,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Yoshioka/Scenes/Prologue.unity
     guid: 89386648e78bb694fae7dca5ec8cb6eb
+  - enabled: 1
+    path: Assets/Yoshioka/Scenes/Loading.unity
+    guid: d5c566191c379c0438999fe7f392628b
   m_configObjects: {}

@@ -49,7 +49,7 @@ public class PrologueManager : MonoBehaviour
     IEnumerator EndCoroutine()
     {
         //Flag
-        PlayerDataManager.Instance.SetIsClear("Prologue_Clear",true);
+        PlayerDataManager.Instance.SetFlag("isClear_Prologue",true);
         
         yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene("Menu");

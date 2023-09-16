@@ -11,45 +11,22 @@ public class StoryManager : MonoBehaviour
 
     void Start()
     {
-        List<Flag> clearFlags = new List<Flag>();
-
-        Flag[] flags = PlayerDataManager.Instance.GetFlags();
-
-        //Flag名にClearとついているものを抜き取る
-        foreach(Flag flag in flags)
+        if(PlayerDataManager.Instance.GetFlag("isClear_Prologue"))
         {
-            if(flag.name.Contains("Clear"))
-            {
-                clearFlags.Add(flag);
-            }
+            Story1Obj.transform.Find("LockedCover").gameObject.SetActive(false);
+            Story1Obj.transform.Find("Play").gameObject.GetComponent<Button>().interactable = true;
         }
 
-        //Prologueという名前がついたclearFlagがあれば、Story1のロックを解除する。
-        foreach(Flag clearFlag in clearFlags)
+        if(PlayerDataManager.Instance.GetFlag("isClear_Story1"))
         {
-            if(clearFlag.name.Contains("Prologue"))
-            {
-                Story1Obj.transform.Find("LockedCover").gameObject.SetActive(!clearFlag.isClear);
-                Story1Obj.transform.Find("Play").gameObject.GetComponent<Button>().interactable = clearFlag.isClear;
-            }
+            Story2Obj.transform.Find("LockedCover").gameObject.SetActive(false);
+            Story2Obj.transform.Find("Play").gameObject.GetComponent<Button>().interactable = true;
         }
 
-        foreach(Flag clearFlag in clearFlags)
+        if(PlayerDataManager.Instance.GetFlag("isClear_Story2"))
         {
-            if(clearFlag.name.Contains("Story1"))
-            {
-                Story2Obj.transform.Find("LockedCover").gameObject.SetActive(!clearFlag.isClear);
-                Story2Obj.transform.Find("Play").gameObject.GetComponent<Button>().interactable = clearFlag.isClear;
-            }
-        }
-
-        foreach(Flag clearFlag in clearFlags)
-        {
-            if(clearFlag.name.Contains("Story2"))
-            {
-                Story3Obj.transform.Find("LockedCover").gameObject.SetActive(!clearFlag.isClear);
-                Story3Obj.transform.Find("Play").gameObject.GetComponent<Button>().interactable = clearFlag.isClear;
-            }
+            Story3Obj.transform.Find("LockedCover").gameObject.SetActive(false);
+            Story3Obj.transform.Find("Play").gameObject.GetComponent<Button>().interactable = true;
         }
     }
 }

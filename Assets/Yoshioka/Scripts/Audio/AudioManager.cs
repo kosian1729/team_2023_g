@@ -8,13 +8,11 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
 {
     public AudioMixer audioMixer;
     public AudioSource BGM_audioSource;
+    public AudioSource BGM_audioSource_2;
     public AudioSource SE_audioSource;
 
     private AudioClip intro_BGM;
     private AudioClip loop_BGM;
-
-    private bool isIntro;
-    private bool isLoop;
 
     private int introSamples;
     private int loopSamples;
@@ -47,24 +45,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         return volume;
     }
 
-    void Update()
-    {
-        if(isIntro&&!BGM_audioSource.isPlaying)
-        {
-            BGM_audioSource.clip = loop_BGM;
-            BGM_audioSource.Play();
-            isIntro = false;
-            isLoop = true;
-        }
-
-        if(isLoop&&!BGM_audioSource.isPlaying)
-        {
-            BGM_audioSource.Play();
-            //BGM_audioSource.timeSamples -= loopSamples;
-        }
-    }
-
-    public void PlayBGM(string name)
+    public void PlayBGM(string name, float delay = 0.0f)
     {
         AudioClip audio = Array.Find(BGMList,BGM => BGM.name == name);
 
@@ -75,7 +56,7 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         }
 
         BGM_audioSource.clip = audio;
-        BGM_audioSource.Play();
+        BGM_audioSource.PlayDelayed(delay);
     }
 
     public void PlayBGM_FromIntroToLoop(string intro_name, string loop_name)
@@ -102,8 +83,9 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
         loop_BGM = _loop_BGM;
 
         BGM_audioSource.clip = intro_BGM;
-        BGM_audioSource.Play();
-        isIntro = true;
+        BGM_audioSource_2.clip = loop_BGM;
+        BGM_audioSource.PlayScheduled(AudioSettings.dspTime);
+        BGM_audioSource_2.PlayScheduled(AudioSettings.dspTime + ((float)BGM_audioSource.clip.samples / (float)BGM_audioSource.clip.frequency));
     }
 
     public void PlaySE(string name)
@@ -122,7 +104,5 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public void StopBGM()
     {
         BGM_audioSource.Stop();
-        isIntro = false;
-        isLoop = false;
     }
 }

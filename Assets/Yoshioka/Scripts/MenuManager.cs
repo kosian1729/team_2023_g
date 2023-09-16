@@ -15,7 +15,6 @@ public class MenuManager : MonoBehaviour
         {
            AudioManager.Instance.PlayBGM_FromIntroToLoop("BGM深捜頭","BGM深捜ループ"); 
         }
-
     }
 
     public void Click_Story()
@@ -41,11 +40,18 @@ public class MenuManager : MonoBehaviour
     public void Click_Play(string name)
     {
         AudioManager.Instance.StopBGM();
-        SceneManager.LoadScene(name);
+        LoadingManager.Instance.LoadScene(name,2.0f);
     }
 
     public void Click_Learn()
     {
-        SceneManager.LoadScene("Learn");
+        LoadingManager.Instance.LoadScene("Learn",1.0f);
+    }
+
+    //Debug
+    public void Click_Reset()
+    {
+        PlayerDataManager.Instance.Reset();
+        SceneManager.LoadScene("Title");
     }
 }

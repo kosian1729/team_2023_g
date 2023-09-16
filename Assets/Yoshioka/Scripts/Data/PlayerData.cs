@@ -1,26 +1,82 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-[CreateAssetMenu]
-public class PlayerData : ScriptableObject 
+[Serializable]
+public class PlayerData : ISerializationCallbackReceiver
 {
-    [Header("Flagを管理する")]
-    public Flag[] flags;
+    Dictionary<string,bool> flag = new Dictionary<string,bool>();
 
-    public void Save()
+    //Dictionaryデータ保存用
+    [SerializeField]
+    List<string> keys = new List<string>();
+
+    [SerializeField]
+    List<bool> values = new List<bool>();
+
+    string[] defaultKey = {
+        "isClear_Prologue",
+        "isClear_Story1",
+        "isClear_Story2",
+        "isClear_Story3",   
+        };
+
+    bool[] defaultValues = {
+        false,
+        false,
+        false,
+        false,
+        };
+
+    public void InitData()
     {
-        var data = JsonUtility.ToJson(this, true);
+        keys.Clear();
+        keys.AddRange(defaultKey);
+        values.Clear();
+        values.AddRange(defaultValues);
 
-        PlayerPrefs.SetString("PlayerData", data);
+        flag = new Dictionary<string, bool>();
+         // Math.Minで最小値を抽出
+        for (int i = 0; i != Math.Min(keys.Count, values.Count); i++)
+        {
+            flag.Add(keys[i], values[i]);
+        }
     }
 
-    public void Load()
-    {
-        if(!PlayerPrefs.HasKey("PlayerData")) return;
-        
-        var data = PlayerPrefs.GetString("PlayerData");
 
-        JsonUtility.FromJsonOverwrite(data, this);
+    // // ToJsonでクラスデータをJsonに変換する前
+    public void OnBeforeSerialize()
+    {
+        Debug.Log("OnBeforeSerialize");
+        keys.Clear();
+        values.Clear();
+        foreach (var f in flag)
+        {
+            keys.Add(f.Key);
+            values.Add(f.Value);
+        }
+    }
+
+    //// FromJsonでクラスデータを読み込んだ後
+    public void OnAfterDeserialize()
+    {
+        Debug.Log("OnAfterDeserialize");
+        flag = new Dictionary<string, bool>();
+         // Math.Minで最小値を抽出
+        for (int i = 0; i != Math.Min(keys.Count, values.Count); i++)
+        {
+            flag.Add(keys[i], values[i]);
+        }
+    }
+
+    public void SetFlag(string flagName, bool state)
+    {
+        flag[flagName] = state;
+    }
+
+    public bool GetFlag(string flagName)
+    {
+        return flag[flagName];
     }
 }
