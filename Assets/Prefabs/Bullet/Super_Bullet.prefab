@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6374430787978461784}
   - component: {fileID: 8038072805586872802}
   - component: {fileID: 3067631567405981407}
-  - component: {fileID: 5017311684745181297}
+  - component: {fileID: 5871490600509781470}
   m_Layer: 0
   m_Name: Super_Bullet
   m_TagString: Untagged
@@ -102,7 +102,7 @@ MonoBehaviour:
   power: 8
   duration: 4
   particleObj: {fileID: 6787894749218832302, guid: 1c34b8e19dd491a4f93d47785c0394ae, type: 3}
---- !u!61 &5017311684745181297
+--- !u!61 &5871490600509781470
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +131,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -145,5 +145,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.9}
+  m_Size: {x: 0.95, y: 0.6}
   m_EdgeRadius: 0

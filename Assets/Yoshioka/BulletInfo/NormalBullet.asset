@@ -15,5 +15,5 @@ MonoBehaviour:
   name: NormalBullet
   obj: {fileID: 3067496423060591401, guid: 6e4076fba75baaf48b5500a190ed1a6d, type: 3}
   sprite: {fileID: 0}
-  interval: 0.3
-  num: 71
+  interval: 0.32
+  num: 84
