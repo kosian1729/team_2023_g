@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 15991dc0cf81ced4a9948848109aa0f1
+guid: 5566347048b2fa04f8936a5bc3a8dd78
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,12 +48,12 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 350
+  spritePixelsToUnits: 250
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0.03
+  spriteTessellationDetail: 0
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -124,40 +124,14 @@ TextureImporter:
     sprites: []
     outline: []
     physicsShape:
-    - - {x: -574.5984, y: 210.02405}
-      - {x: -524.8795, y: -8.970947}
-      - {x: -332.4842, y: -136.87686}
-      - {x: -237.67523, y: -149.2536}
-      - {x: -148.7315, y: -275.9596}
-      - {x: 51.677673, y: -321.41415}
-      - {x: 314.45703, y: -341.41092}
-      - {x: 525.3214, y: -286.94177}
-      - {x: 392.67334, y: -324.37723}
-      - {x: 131.13959, y: -268.96365}
-      - {x: 260.54028, y: -225.2045}
-      - {x: -8.204773, y: -209.28467}
-      - {x: -0.1328125, y: -180.32748}
-      - {x: 370.38745, y: -219.08307}
-      - {x: 625.46716, y: -181.09714}
-      - {x: 342.01965, y: -144.64859}
-      - {x: 603.16565, y: -129.22595}
-      - {x: 457.83826, y: -95.370575}
-      - {x: 262.8573, y: -109.661194}
-      - {x: 118.686646, y: -69.59369}
-      - {x: 133.7204, y: -19.618103}
-      - {x: 236.94312, y: 8.52063}
-      - {x: 566.4409, y: -87.78613}
-      - {x: 465.84045, y: -13.699829}
-      - {x: 572.4999, y: 5.529846}
-      - {x: 691.9115, y: 97.33331}
-      - {x: 520.7627, y: 45.044067}
-      - {x: 627.6516, y: 172.10321}
-      - {x: 473.4093, y: 79.468506}
-      - {x: 164.95862, y: 121.51843}
-      - {x: 46.652954, y: 65.5014}
-      - {x: -122.50885, y: 224.61096}
-      - {x: -275.96667, y: 295.4643}
-      - {x: -462.98672, y: 300.4668}
+    - - {x: 81, y: 344}
+      - {x: -147, y: 262}
+      - {x: -235, y: -141}
+      - {x: -324, y: -186}
+      - {x: -454, y: -500}
+      - {x: 413, y: -500}
+      - {x: 272, y: 41}
+      - {x: 122, y: 105}
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 1537655665

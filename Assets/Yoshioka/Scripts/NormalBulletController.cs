@@ -39,6 +39,11 @@ public class NormalBulletController : MonoBehaviour
             Instantiate(particleObj,transform.position,Quaternion.identity);
             Destroy(this.gameObject);
         }
+        else if(other.tag == "Obstacle")
+        {
+            Instantiate(particleObj,transform.position,Quaternion.identity);
+            Destroy(this.gameObject);
+        }
 
     }
 }

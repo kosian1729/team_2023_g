@@ -5,7 +5,7 @@ using UnityEngine;
 public class SquidController : MonoBehaviour, IDamagable
 {
     [Header("敵のスピード")]
-    [Tooltip("標準値は1です。")]
+    [Tooltip("標準値は6です。")]
     [SerializeField] private float speed;
 
     [Header("敵の体力")]
@@ -13,12 +13,6 @@ public class SquidController : MonoBehaviour, IDamagable
 
     [Header("敵の攻撃力（衝突時）")]
     [SerializeField] private int hitPower;
-
-    [Header("攻撃間隔")]
-    [SerializeField] private float interval;
-
-    [Header("プレイヤーをねらって打つか")]
-    [SerializeField] private bool isAim;
 
     private Transform player;
 
@@ -59,7 +53,6 @@ public class SquidController : MonoBehaviour, IDamagable
 
             case 1:
                 Vector3 direction = (player.position - this.transform.position);
-                Debug.Log(direction);
                 this.transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.FromToRotation(Vector3.up,Quaternion.Euler(0,0,-86)*direction),0.4f);
 
                 if(timer>2.0f)
@@ -68,7 +61,7 @@ public class SquidController : MonoBehaviour, IDamagable
 
                     phase = 2;
 
-                    if(num>=3)
+                    if(num>=2)
                     {
                         phase = 3;
                     }
@@ -93,7 +86,7 @@ public class SquidController : MonoBehaviour, IDamagable
             case 3:
                 transform.position += transform.rotation * new Vector3(-1,0) * Time.deltaTime * _speed;
                 _speed -= speed * Time.deltaTime/5.0f;
-                _speed = Mathf.Clamp(_speed,0,speed);
+                _speed = Mathf.Clamp(_speed,2.0f,speed);
 
                 Destroy(this.gameObject,8.0f);
                 break;

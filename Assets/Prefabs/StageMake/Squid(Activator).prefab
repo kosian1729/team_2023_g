@@ -336,8 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7492f05ad4af1f449d368ec6c76b7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 6
   hp: 6
   hitPower: 1
-  interval: 3
-  isAim: 0
