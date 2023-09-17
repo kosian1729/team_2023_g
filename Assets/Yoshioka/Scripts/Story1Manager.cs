@@ -19,6 +19,7 @@ public class Story1Manager : MonoBehaviour
     {
         //blackScreenを透明にする
         blackScreen.alpha = 0;
+        blackScreen.interactable = false;
         //Cameraのスクロールを止める
         cameraScroll.PouseCameraScroll(true);
 
@@ -83,11 +84,12 @@ public class Story1Manager : MonoBehaviour
         AudioManager.Instance.PlayBGM("BGMゲームオーバー",0.5f);
 
         blackScreen.DOFade(0.8f,2.0f);
+        blackScreen.interactable = true;
     }
 
     public void Click_Retry()
     {
-        LoadingManager.Instance.LoadScene("Stage0",2.0f);
+        LoadingManager.Instance.LoadScene("Story1",2.0f);
     }
 
     public void Click_Back()

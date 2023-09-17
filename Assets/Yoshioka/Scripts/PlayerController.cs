@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour, IDamagable
     public void AddDamage(int damage)
     {
         hp-=damage;
+        hp = Mathf.Clamp(hp,0,hp);
 
         heartManager.SetHeart(maxHp,hp);
 

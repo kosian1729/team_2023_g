@@ -20,6 +20,7 @@ public class StageManager : MonoBehaviour
 
         //blackScreenを透明にする
         blackScreen.alpha = 0;
+        blackScreen.interactable = false;
         //Cameraのスクロールを止める
         cameraScroll.PouseCameraScroll(true);
 
@@ -51,6 +52,7 @@ public class StageManager : MonoBehaviour
         AudioManager.Instance.PlayBGM("BGMゲームオーバー",0.5f);
 
         blackScreen.DOFade(0.8f,2.0f);
+        blackScreen.interactable = true;
     }
      
     public void Boss()
