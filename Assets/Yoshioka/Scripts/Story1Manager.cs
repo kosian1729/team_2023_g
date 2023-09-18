@@ -7,19 +7,35 @@ using UnityEngine.SceneManagement;
 
 public class Story1Manager : MonoBehaviour
 {
-    public CameraScroll cameraScroll;
+    public GameObject camera;
+    private CameraScroll cameraScroll;
     public PlayerController playerController;
+    public BossSeaDragonController bossController;
     public GameEvent BeforeStageStart;
     public GameObject playerInfo;   //UI
     public CanvasGroup blackScreen;  //暗転用
+    public CanvasGroup bossInfo;
+    public CanvasGroup result;
+    public GameObject resultText;
     public DialogueManager dialogueManager;
+    [Header("ボス戦のカメラ位置")]
+    public Transform BossCameraPos;
     private Color screenColor;
 
     void Start()
     {
+        cameraScroll = camera.GetComponent<CameraScroll>();
         //blackScreenを透明にする
         blackScreen.alpha = 0;
         blackScreen.interactable = false;
+        blackScreen.blocksRaycasts = false;
+        //bossInfoを透明にする
+        bossInfo.alpha = 0;
+        //resultを透明にする
+        result.alpha = 0;
+        result.interactable = false;
+        result.blocksRaycasts = false;
+        resultText.transform.DOScale(new Vector3(0.1f,0.1f,0.1f),0.01f);
         //Cameraのスクロールを止める
         cameraScroll.PouseCameraScroll(true);
 
@@ -39,12 +55,15 @@ public class Story1Manager : MonoBehaviour
 
     IEnumerator PhaseA()
     {
+        AudioManager.Instance.PlayBGM_FromIntroToLoop("BGM調査頭","BGM調査ループ");   
         yield return new WaitForSeconds(0.6f);
-
-        AudioManager.Instance.PlayBGM_FromIntroToLoop("BGM調査頭","BGM調査ループ");
 
         //BeforeStageStartをRistenしているものを実行する
         BeforeStageStart.Raise();
+
+
+
+
 
         yield return new WaitForSeconds(3.8f);
 
@@ -65,16 +84,48 @@ public class Story1Manager : MonoBehaviour
        
         cameraScroll.PouseCameraScroll(true);
 
+        AudioManager.Instance.StopBGM();
+
         dialogueManager.StartDialogue(1);
 
         dialogueManager.OnEndLog = () =>{
-            StartCoroutine(PhaseB());
+
+            var sequence = DOTween.Sequence();
+
+            sequence.AppendInterval(0.6f)   //0-0.6
+                    .Append(camera.transform.DOMove(BossCameraPos.position,12.0f)) //0.6-4.6
+                    .Join(bossInfo.DOFade(1,0.4f));
+
+            sequence.InsertCallback(0.6f, () =>
+            {
+                playerController.StopControll(false);
+                bossController.BossStart();
+                AudioManager.Instance.PlayBGM_FromIntroToLoop("BGMボス戦AGG頭","BGMボス戦AGGループ");
+            });
         };
     }
 
-    IEnumerator PhaseB()
+    public void AfterBoss()
     {
-        yield return new WaitForSeconds(0.6f);
+        bossInfo.DOFade(0,0.4f);
+
+        playerController.StopControll(true);
+        AudioManager.Instance.StopBGM();
+
+        dialogueManager.StartDialogue(2);
+
+        dialogueManager.OnEndLog = () =>{
+
+            AudioManager.Instance.PlayBGM_FromIntroToLoop("BGMリザルト頭","BGMリザルトループ");
+
+            var sequence = DOTween.Sequence();
+
+            sequence.Append(result.DOFade(1,0.2f))
+                    .Join(resultText.transform.DOScale(new Vector3(1,1,1), 0.6f));
+            
+            result.interactable = true;
+            result.blocksRaycasts = true;
+        };
     }
 
     public void GameOver()
@@ -85,6 +136,7 @@ public class Story1Manager : MonoBehaviour
 
         blackScreen.DOFade(0.8f,2.0f);
         blackScreen.interactable = true;
+        blackScreen.blocksRaycasts = true;
     }
 
     public void Click_Retry()
@@ -95,13 +147,5 @@ public class Story1Manager : MonoBehaviour
     public void Click_Back()
     {
         LoadingManager.Instance.LoadScene("Title",2.0f);
-    }
-
-
-    IEnumerator BlackOut()
-    {
-
-        yield return new WaitForSeconds(1.0f);
-        SceneManager.LoadScene("Title");
     }
 }

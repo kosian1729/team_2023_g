@@ -184,6 +184,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f96baa481e039345a79d028962a7bf4, type: 3}
+--- !u!114 &38656128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
+  m_PrefabInstance: {fileID: 1161532695805893040}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ab3713c6e391f43b15679a324bf336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &39019787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3767,17 +3778,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb073c331d5fcf4097679861853ba0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1394314976 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8952189187525561075, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
-  m_PrefabInstance: {fileID: 1161532695805893040}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6ab3713c6e391f43b15679a324bf336, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1408244135 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6190741866497834903, guid: 8d77690144affd5459bdf68f40751d46, type: 3}
@@ -4208,6 +4208,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 854752429c70cec4d944b67ad7dc2999, type: 3}
+--- !u!95 &1582920703 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2514496068112099495, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
+  m_PrefabInstance: {fileID: 1161532695805893040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1594921853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6011,7 +6016,7 @@ PrefabInstance:
     - target: {fileID: 1871653554785292864, guid: a9472cb851c1dd74ba7d54bbb0fda176, type: 3}
       propertyPath: playerController
       value: 
-      objectReference: {fileID: 1394314976}
+      objectReference: {fileID: 38656128}
     - target: {fileID: 3123735389487137609, guid: a9472cb851c1dd74ba7d54bbb0fda176, type: 3}
       propertyPath: m_Name
       value: StageManager
@@ -6076,6 +6081,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
+      propertyPath: Boss
+      value: 
+      objectReference: {fileID: 11400000, guid: 3e39b2371f59cf241ab55c8019cbb342, type: 2}
+    - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
+      propertyPath: GameOver
+      value: 
+      objectReference: {fileID: 11400000, guid: f0a9172923a69444b91f82798856ee6f, type: 2}
+    - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1582920703}
+    - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
+      propertyPath: heartManager
+      value: 
+      objectReference: {fileID: 104161926}
+    - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
+      propertyPath: bulletManager
+      value: 
+      objectReference: {fileID: 1783183642}
     - target: {fileID: 8952189187525561075, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
       propertyPath: maxHp
       value: 6
