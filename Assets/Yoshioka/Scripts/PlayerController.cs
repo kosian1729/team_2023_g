@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     private bool stop;
 
+    private bool noDamageMode;
+
     void Start()
     {
         cam = Camera.main;
@@ -113,6 +115,8 @@ public class PlayerController : MonoBehaviour, IDamagable
     //被ダメ時
     public void AddDamage(int damage)
     {
+        if(noDamageMode) return;
+        
         hp-=damage;
         hp = Mathf.Clamp(hp,0,hp);
 
@@ -131,9 +135,11 @@ public class PlayerController : MonoBehaviour, IDamagable
         }
     }
 
-    public void StopControll(bool _stop)
+    public void StopControll(bool isStop)
     {
-        stop = _stop;
+        stop = isStop;
+        noDamageMode = isStop;
+
     }
 
     public void BeforeStageStart()
