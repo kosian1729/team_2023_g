@@ -79,10 +79,13 @@ public class SeahouseController : MonoBehaviour, IDamagable
 
     void Attack()
     {
+        //playerが自分より右に行くと攻撃をやめる
+        if(this.transform.position.x < player.position.x) return;
+
         if(isAim)
         {
             Vector3 direction = player.position - this.transform.position;
-            Instantiate(bullet,this.transform.position,Quaternion.FromToRotation(Vector3.up,direction));
+            Instantiate(bullet,this.transform.position ,Quaternion.FromToRotation(Vector3.up,direction));
         }
         else
         {

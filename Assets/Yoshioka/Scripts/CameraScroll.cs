@@ -26,7 +26,7 @@ public class CameraScroll : MonoBehaviour
         while(seconds>0)
         {
             scrollSpeed = oriSpeed/(seconds+1);
-            seconds -= Time.deltaTime;
+            seconds -= 0.02f;
             yield return new WaitForSeconds(0.02f);
         }
         scrollSpeed = oriSpeed;

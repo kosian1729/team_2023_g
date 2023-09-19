@@ -5,12 +5,12 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-public class Story1Manager : MonoBehaviour
+public class Story2Manager : MonoBehaviour
 {
     public GameObject camera;
     private CameraScroll cameraScroll;
     public PlayerController playerController;
-    public BossSeaDragonController bossController;
+    public BossUniController bossController;
     public GameEvent BeforeStageStart;
     public GameObject playerInfo;   //UI
     public CanvasGroup blackScreen;  //暗転用
@@ -27,7 +27,7 @@ public class Story1Manager : MonoBehaviour
 
     void Start()
     {
-        if(PlayerDataManager.Instance.GetFlag("isBoss_Story1"))
+        if(PlayerDataManager.Instance.GetFlag("isBoss_Story2"))
         {
             camera.transform.position += new Vector3(x,0,0);
             StartCoroutine(PhaseA());
@@ -36,10 +36,9 @@ public class Story1Manager : MonoBehaviour
         {
             //Dialogueパート開始
             dialogueManager.StartDialogue(0);
-
             //Dialogueパートが終了時に呼び出される
             dialogueManager.OnEndLog = () =>{
-            StartCoroutine(PhaseA());
+                StartCoroutine(PhaseA());
             };
         }
 
@@ -62,7 +61,6 @@ public class Story1Manager : MonoBehaviour
         playerController.StopControll(true);
 
         playerInfo.SetActive(false);
-
         
     }
 
@@ -73,10 +71,6 @@ public class Story1Manager : MonoBehaviour
 
         //BeforeStageStartをRistenしているものを実行する
         BeforeStageStart.Raise();
-
-
-
-
 
         yield return new WaitForSeconds(3.8f);
 
@@ -94,7 +88,7 @@ public class Story1Manager : MonoBehaviour
     public void Boss()
     {
         //Boss遭遇フラグ
-        PlayerDataManager.Instance.SetFlag("isBoss_Story1",true);
+        PlayerDataManager.Instance.SetFlag("isBoss_Story2",true);
 
         playerController.StopControll(true);
        
@@ -109,14 +103,18 @@ public class Story1Manager : MonoBehaviour
             var sequence = DOTween.Sequence();
 
             sequence.AppendInterval(0.6f)   //0-0.6
-                    .Append(camera.transform.DOMove(BossCameraPos.position,12.0f)) //0.6-4.6
+                    .Append(camera.transform.DOMove(BossCameraPos.position,12.0f)) //0.6-12.6
                     .Join(bossInfo.DOFade(1,0.4f));
 
             sequence.InsertCallback(0.6f, () =>
             {
                 playerController.StopControll(false);
-                bossController.BossStart();
                 AudioManager.Instance.PlayBGM_FromIntroToLoop("BGMボス戦AGG頭","BGMボス戦AGGループ");
+            });
+
+            sequence.InsertCallback(11.5f, () =>
+            {
+                bossController.BossStart();
             });
         };
     }
@@ -144,8 +142,8 @@ public class Story1Manager : MonoBehaviour
         };
 
         //Boss遭遇false　ストーリークリアtrue
-        PlayerDataManager.Instance.SetFlag("isBoss_Story1",false);
-        PlayerDataManager.Instance.SetFlag("isClear_Story1",true);
+        PlayerDataManager.Instance.SetFlag("isBoss_Story2",false);
+        PlayerDataManager.Instance.SetFlag("isClear_Story2",true);
     }
 
     public void GameOver()
@@ -155,7 +153,7 @@ public class Story1Manager : MonoBehaviour
         AudioManager.Instance.PlayBGM("BGMゲームオーバー",0.5f);
 
         //Bossにたどり着いていたら選択肢に表示
-        if(PlayerDataManager.Instance.GetFlag("isBoss_Story1"))
+        if(PlayerDataManager.Instance.GetFlag("isBoss_Story2"))
         {
             easyRetry.SetActive(true);
         }
@@ -163,7 +161,7 @@ public class Story1Manager : MonoBehaviour
         {
             easyRetry.SetActive(false);
         }
-
+        
         blackScreen.DOFade(0.8f,2.0f);
         blackScreen.interactable = true;
         blackScreen.blocksRaycasts = true;
@@ -171,8 +169,8 @@ public class Story1Manager : MonoBehaviour
 
     public void Click_Retry()
     {
-        PlayerDataManager.Instance.SetFlag("isBoss_Story1",false);
-        LoadingManager.Instance.LoadScene("Story1",2.0f);
+        PlayerDataManager.Instance.SetFlag("isBoss_Story2",false);
+        LoadingManager.Instance.LoadScene("Story2",2.0f);
     }
 
     public void Click_Back()
@@ -182,6 +180,6 @@ public class Story1Manager : MonoBehaviour
 
     public void Click_EasyRetry()
     {
-        LoadingManager.Instance.LoadScene("Story1",1.9f);
+        LoadingManager.Instance.LoadScene("Story2",1.9f);
     }
 }
