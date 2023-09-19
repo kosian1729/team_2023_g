@@ -22,6 +22,9 @@ public class UniController : MonoBehaviour, IDamagable
     [Header("発射数(0の時は上下に動くのみになります。)")]
     [SerializeField] private int attackNum;
 
+    [Header("攻撃間隔")]
+    [SerializeField] private float interval = 4.0f;
+
     [Header("目（開）の画像")]
     public Sprite openEyeSprite;
 
@@ -79,9 +82,9 @@ public class UniController : MonoBehaviour, IDamagable
                 break;
 
             case 1:
-                pos.y += Mathf.Cos(timer/moveHeight + lastTime) * Time.deltaTime;　//微分すると変化量がCosなので、サインカーブを描けます。
+                pos += transform.rotation * Vector3.up * Mathf.Cos(timer/moveHeight + lastTime) * Time.deltaTime;　//微分すると変化量がCosなので、サインカーブを描けます。
 
-                if(timer > 4.0f)
+                if(timer > interval)
                 {
                     lastTime += timer/moveHeight;
                     phase = 2;
@@ -104,7 +107,7 @@ public class UniController : MonoBehaviour, IDamagable
                 break;
 
             case -1:
-                pos.y += Mathf.Cos(timer/moveHeight) * Time.deltaTime;　//微分すると変化量がCosなので、サインカーブを描けます。
+                pos += transform.rotation * Vector3.up * Mathf.Cos(timer/moveHeight) * Time.deltaTime;　//微分すると変化量がCosなので、サインカーブを描けます。
                 break;
         }
 
@@ -136,7 +139,7 @@ public class UniController : MonoBehaviour, IDamagable
         float attackAngle;
         float offset = Random.Range(0.0f,360/attackNum);
 
-        for(int n = 0; n<=attackNum; n++)
+        for(int n = 0; n<attackNum; n++)
         {
             attackAngle = (360/attackNum) * n + offset;
             Instantiate(bullet,this.transform.position,Quaternion.Euler(0,0,attackAngle));

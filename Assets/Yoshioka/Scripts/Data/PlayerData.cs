@@ -19,7 +19,10 @@ public class PlayerData : ISerializationCallbackReceiver
         "isClear_Prologue",
         "isClear_Story1",
         "isClear_Story2",
-        "isClear_Story3",   
+        "isClear_Story3",
+        "isBoss_Story1",
+        "isBoss_Story2",
+        "isBoss_Story3"
         };
 
     bool[] defaultValues = {
@@ -27,6 +30,9 @@ public class PlayerData : ISerializationCallbackReceiver
         false,
         false,
         false,
+        false,
+        false,
+        false
         };
 
     public void InitData()
