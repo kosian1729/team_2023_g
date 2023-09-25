@@ -14,18 +14,22 @@ public class SquidController : MonoBehaviour, IDamagable
     [Header("敵の攻撃力（衝突時）")]
     [SerializeField] private int hitPower;
 
+    [Header("攻撃回数")]
+    [SerializeField] private int num = 1;
+
+    [Header("攻撃間隔")]
+    [SerializeField] private float interval = 0.9f;
+
     private Transform player;
 
     private int phase;
 
     private float timer;    //スポーンしてからの経過時間
-    private int num; //攻撃するたびに加算
     private float _speed;
 
     void Start()
     {
         phase = 0;
-        num = 1;
 
         if(hp<=0.0f)
         {
@@ -44,7 +48,7 @@ public class SquidController : MonoBehaviour, IDamagable
         switch(phase)
         {
             case 0:
-                if(timer>1.0f)
+                if(timer>interval)
                 {
                     phase = 1;
                     timer = 0;
@@ -53,15 +57,16 @@ public class SquidController : MonoBehaviour, IDamagable
 
             case 1:
                 Vector3 direction = (player.position - this.transform.position);
-                this.transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.FromToRotation(Vector3.up,Quaternion.Euler(0,0,-86)*direction),0.4f);
+                this.transform.rotation = Quaternion.RotateTowards(transform.rotation,Quaternion.FromToRotation(Vector3.up,Quaternion.Euler(0,0,-86)*direction),0.9f);
 
-                if(timer>2.0f)
+                if(timer>1.5f)
                 {
                     _speed = speed;
 
                     phase = 2;
+                    num--;
 
-                    if(num>=2)
+                    if(num<=0)
                     {
                         phase = 3;
                     }
@@ -77,7 +82,6 @@ public class SquidController : MonoBehaviour, IDamagable
                 if(_speed <= 0)
                 {
                     phase = 1;
-                    num++;
                 }
 
                 timer = 0;
@@ -86,7 +90,7 @@ public class SquidController : MonoBehaviour, IDamagable
             case 3:
                 transform.position += transform.rotation * new Vector3(-1,0) * Time.deltaTime * _speed;
                 _speed -= speed * Time.deltaTime/5.0f;
-                _speed = Mathf.Clamp(_speed,2.0f,speed);
+                _speed = Mathf.Clamp(_speed,speed*0.75f,speed);
 
                 Destroy(this.gameObject,8.0f);
                 break;

@@ -104,5 +104,6 @@ public class AudioManager : SingletonMonoBehaviour<AudioManager>
     public void StopBGM()
     {
         BGM_audioSource.Stop();
+        BGM_audioSource_2.Stop();
     }
 }

@@ -27,6 +27,7 @@ public class Story2Manager : MonoBehaviour
 
     void Start()
     {
+        
         if(PlayerDataManager.Instance.GetFlag("isBoss_Story2"))
         {
             camera.transform.position += new Vector3(x,0,0);
@@ -62,6 +63,7 @@ public class Story2Manager : MonoBehaviour
 
         playerInfo.SetActive(false);
         
+
     }
 
     IEnumerator PhaseA()
@@ -150,6 +152,7 @@ public class Story2Manager : MonoBehaviour
     {        
         cameraScroll.StartCoroutine("FadeOut");
 
+        AudioManager.Instance.StopBGM();
         AudioManager.Instance.PlayBGM("BGMゲームオーバー",0.5f);
 
         //Bossにたどり着いていたら選択肢に表示
@@ -175,7 +178,8 @@ public class Story2Manager : MonoBehaviour
 
     public void Click_Back()
     {
-        LoadingManager.Instance.LoadScene("Title",2.0f);
+        PlayerDataManager.Instance.SetFlag("isBoss_Story2",false);
+        LoadingManager.Instance.LoadScene("Title",3.0f);
     }
 
     public void Click_EasyRetry()

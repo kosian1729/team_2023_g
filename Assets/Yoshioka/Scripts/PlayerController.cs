@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour, IDamagable
     private Camera cam;
     private GameObject animPosObj;
 
+    [Header("ロストテクノロジー「ワープ」")]
+    [SerializeField] private bool canWarp;
+
     [Header("Playerの移動速度")]
     [SerializeField] private float playerSpeed;
 
@@ -75,8 +78,24 @@ public class PlayerController : MonoBehaviour, IDamagable
         var currentPos = transform.localPosition + new Vector3(x*Time.deltaTime*playerSpeed,y*Time.deltaTime*playerSpeed);
         var gap = animPosObj.transform.localPosition;
 
-        currentPos.y = Mathf.Clamp(currentPos.y, -cam.orthographicSize-gap.y, cam.orthographicSize-gap.y);
         currentPos.x = Mathf.Clamp(currentPos.x, -cam.orthographicSize * 1920/1080 -gap.x, cam.orthographicSize * 1920/1080 -gap.x);
+
+        if(!canWarp)
+        {
+            currentPos.y = Mathf.Clamp(currentPos.y, -cam.orthographicSize-gap.y, cam.orthographicSize-gap.y);
+        }
+        else
+        {
+            if(transform.position.y > cam.orthographicSize + 0.2f)
+            {
+                currentPos.y = -cam.orthographicSize - 0.2f - gap.y;
+            }
+            else if(transform.position.y < -cam.orthographicSize - 0.2f)
+            {
+                currentPos.y = cam.orthographicSize - 0.2f -gap.y;
+            }
+        }
+        
 
         transform.localPosition = currentPos;
         
@@ -89,7 +108,7 @@ public class PlayerController : MonoBehaviour, IDamagable
         {
             AudioManager.Instance.PlaySE("SE攻撃");
 
-            Instantiate(bulletManager.GetBulletObj(), new Vector3(transform.position.x + offset_x,transform.position.y), Quaternion.Euler(0,0,-90));
+            Instantiate(bulletManager.GetBulletObj(), new Vector3(transform.position.x + offset_x,transform.position.y), Quaternion.identity);
             bulletManager.ChangeBulletNum(-1,bulletManager.GetSlotNum());
             timer = bulletManager.GetBulletInterval(); // 間隔をセット
         }
@@ -112,19 +131,21 @@ public class PlayerController : MonoBehaviour, IDamagable
         }
     }
 
-    //被ダメ時
+    //被ダメ時(回復時)
     public void AddDamage(int damage)
     {
         if(noDamageMode) return;
         
         hp-=damage;
-        hp = Mathf.Clamp(hp,0,hp);
+        hp = Mathf.Clamp(hp,0,maxHp);
 
         heartManager.SetHeart(maxHp,hp);
 
-        damagePanel.color = new Color(0.8f,0f,0f,0.8f);
-        damagePanel.DOFade(0,0.3f).SetEase(Ease.InQuad);
-
+        if(damage>0)
+        {
+            damagePanel.color = new Color(0.8f,0f,0f,0.8f);
+            damagePanel.DOFade(0,0.3f).SetEase(Ease.InQuad);
+        }
 
         if(hp<=0)
         {
@@ -134,6 +155,8 @@ public class PlayerController : MonoBehaviour, IDamagable
             this.gameObject.SetActive(false);
         }
     }
+
+
 
     public void StopControll(bool isStop)
     {

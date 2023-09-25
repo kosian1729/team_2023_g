@@ -76,7 +76,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.1, y: 0.3}
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.1
-  hp: 10
+  hp: 12
   hitPower: 1
   bullet: {fileID: 1893795226476331337, guid: 08c8975ca7a081744b7cd5744179fc3e, type: 3}
   interval: 1.8
