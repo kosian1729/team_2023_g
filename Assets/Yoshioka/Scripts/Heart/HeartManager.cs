@@ -8,7 +8,7 @@ public class HeartManager : MonoBehaviour
     [Header("HeartImageControllerを順番に入れる(0番は空けてください)")]
     [SerializeField] private HeartImageController[] heartImageController;
 
-    private int before_maxHp,before_hp = -1;
+    private int before_maxHp,before_hp = 11;
 
 
     public void SetHeart(int maxHp, int hp)
@@ -29,11 +29,21 @@ public class HeartManager : MonoBehaviour
             }
         }
 
-
-        //現在のhpに応じて、一部のハートをダメージ受けた状態にする。
-        for(int j=maxHp; j>hp; j--)
+        //回復時の処理
+        if(hp>before_hp)
         {
-            heartImageController[j].ChangeHeartState(2);
+            for(int j=before_hp; j<hp; j++)
+            {
+                heartImageController[j+1].ChangeHeartState(1);
+            }
+        }
+        else if(hp<before_hp)
+        {
+            //現在のhpに応じて、一部のハートをダメージ受けた状態にする。
+            for(int j=maxHp; j>hp; j--)
+            {
+                heartImageController[j].ChangeHeartState(2);
+            }
         }
 
         before_maxHp = maxHp;

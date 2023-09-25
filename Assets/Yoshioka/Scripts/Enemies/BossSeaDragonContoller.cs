@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class BossSeaDragonController : MonoBehaviour, IDamagable
 {
@@ -18,13 +19,13 @@ public class BossSeaDragonController : MonoBehaviour, IDamagable
     [SerializeField] private int hitPower;
 
     [Header("敵の攻撃弾")]
-    [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject dragonBullet;
 
-    [Header("攻撃間隔")]
-    [SerializeField] private float interval;
+    [Header("敵の攻撃弾")]
+    [SerializeField] private GameObject dragonBreathBullet;
 
-    [Header("プレイヤーをねらって打つか")]
-    [SerializeField] private bool isAim;
+    [Header("敵の攻撃弾")]
+    [SerializeField] private GameObject dragonRocketBullet;
 
     [Header("HPバー")]
     public Slider hpBar;
@@ -38,13 +39,14 @@ public class BossSeaDragonController : MonoBehaviour, IDamagable
 
     private int phase;
 
-    private float timer;    //スポーンしてからの経過時間
-    private int num; //攻撃するたびに加算
+    private float moveTimer;    
+    private float timer;
+    private int num;
 
     void Start()
     {
         phase = 0;
-        num = 1;
+        num = 0;
 
         hp = maxHp;
         hpBar.value = hp;
@@ -73,23 +75,41 @@ public class BossSeaDragonController : MonoBehaviour, IDamagable
         switch(phase)
         {
             case 1:
-                pos.x -= Time.deltaTime;
-                pos.y += Mathf.Cos(timer) * Time.deltaTime;　//微分すると変化量がCosなので、サインカーブを描けます。
+                moveTimer += Time.deltaTime;
+                pos.y += Mathf.Cos(moveTimer/2) * 1.5f * Time.deltaTime;　//微分すると変化量がCosなので、サインカーブを描けます。
 
-                if(timer>1.8f)
+                if(timer>4.5f - 0.15f * (maxHp - hp)/10)
                 {
-                    phase = 2;
+                    phase = Random.Range(1,102)%3 + 2;
+                    timer = 0;
+                    num = (maxHp - hp)/22 + 1;
                 }
                 break;
 
             case 2:
-                pos.y += Mathf.Cos(timer) * Time.deltaTime;　//微分すると変化量がCosなので、サインカーブを描けます。
+                moveTimer += Time.deltaTime;
+                pos.y += Mathf.Cos(moveTimer/2) * 1.5f * Time.deltaTime;　//微分すると変化量がCosなので、サインカーブを描けます。
 
-                if(timer>1.8f + interval * num)
+                if(num>0 && timer > 0.4f)
                 {
                     Attack();
-                    num++;
+                    timer = 0;
+                    num--;
                 }
+                else if(num<=0 && timer > 0.4f)
+                {
+                    phase = 1;
+                }
+                break;
+
+            case 3:
+                StartCoroutine(Breath());
+                phase = 1;
+                break;
+            
+            case 4:
+                StartCoroutine(Rocket());
+                phase = 1;
                 break;
         }
 
@@ -98,20 +118,34 @@ public class BossSeaDragonController : MonoBehaviour, IDamagable
 
     void Attack()
     {
-        if(isAim)
+        Vector3 direction = player.position - this.transform.position;
+        int p = (maxHp - hp)/30;
+        for(int n = 2+p; n>=-2-p; n--)
+        {
+            Instantiate(dragonBullet,this.transform.position,Quaternion.FromToRotation(Vector3.up,Quaternion.Euler(0,0,6*n) * direction));
+        }
+    }
+
+    IEnumerator Breath()
+    {
+        Vector3 direction = player.position - this.transform.position;
+        for(int n = 3; n>=-3; n--)
+        {
+            Instantiate(dragonBreathBullet,this.transform.position,Quaternion.FromToRotation(Vector3.up,Quaternion.Euler(0,0,8*n) * direction));
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
+
+    IEnumerator Rocket()
+    {
+        
+        int q = (maxHp - hp)/33;
+        for(int n = 3+q; n > 0; n--)
         {
             Vector3 direction = player.position - this.transform.position;
-            for(int n = 4; n>=-4; n--)
-            {
-                Instantiate(bullet,this.transform.position,Quaternion.FromToRotation(Vector3.up,Quaternion.Euler(0,0,5*n) * direction));
-            }
-
+            Instantiate(dragonRocketBullet,this.transform.position,Quaternion.FromToRotation(Vector3.up,direction));
+            yield return new WaitForSeconds(0.6f);
         }
-        else
-        {
-            Instantiate(bullet,this.transform.position,Quaternion.Euler(0,0,Random.Range(85.0f,95.0f)));
-        }
-
     }
 
     public void BossStart()

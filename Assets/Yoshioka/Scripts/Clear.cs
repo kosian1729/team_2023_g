@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Clear : MonoBehaviour
 {
+    public Story4Manager story4Manager;
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player")
         {
-            SceneManager.LoadScene("Title");
+            story4Manager.Clear();
         }
     }
 }

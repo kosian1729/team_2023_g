@@ -14,12 +14,6 @@ public class PlayerDataManager : SingletonMonoBehaviour<PlayerDataManager>
         Load();
     }
 
-    void OnApplicationQuit()
-    {
-        Debug.Log("Save is succesed");
-        Save();
-    }
-
     public void Save()
     {
         var data = JsonUtility.ToJson(playerData);
@@ -37,6 +31,10 @@ public class PlayerDataManager : SingletonMonoBehaviour<PlayerDataManager>
             Debug.Log(data);
             playerData = JsonUtility.FromJson<PlayerData>(data);        
         }
+        else
+        {
+            Reset();
+        }
     }
 
     public void Reset()
@@ -47,11 +45,13 @@ public class PlayerDataManager : SingletonMonoBehaviour<PlayerDataManager>
 
     public bool GetFlag(string flagName)
     {
+        Load();
         return playerData.GetFlag(flagName);
     }
 
     public void SetFlag(string flagName, bool state)
     {
         playerData.SetFlag(flagName,state);
+        Save();
     }
 }
