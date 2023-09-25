@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: SpecialBullet
   obj: {fileID: 3067496423060591401, guid: bd5c7afd2f2f87e41a5ffe02f64118b7, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 0ef9ac9bf4505ab42bac65a25a024f71, type: 3}
   interval: 0.2
-  num: 24
+  num: 0

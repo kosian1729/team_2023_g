@@ -85,8 +85,12 @@ public class BulletManager : MonoBehaviour
         {
             slotNum = 2;
         }
-
-        frame.position = new Vector2(frameOriginalPos.x + 140 * slotNum, frameOriginalPos.y);
+        
+        var pos = frame.position;
+        pos.x = frameOriginalPos.x + 140 *(Screen.width/1920f) * slotNum;
+        frame.position = pos;
+        
+        Debug.Log(Screen.width);
     }
 
     public string GetBulletName(int n)

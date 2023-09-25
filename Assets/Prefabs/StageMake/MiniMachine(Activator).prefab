@@ -291,9 +291,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.2
-  hp: 3
+  hp: 2
   hitPower: 1
   angle: 0
+  movePatern: 0
+  coasterScale: 1
+  timeOffset: 2.5
 --- !u!60 &7496425196937916682
 PolygonCollider2D:
   m_ObjectHideFlags: 0

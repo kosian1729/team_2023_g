@@ -25,7 +25,7 @@ public class Story1Manager : MonoBehaviour
     public float x;
     private Color screenColor;
 
-    void Start()
+    void Awake()
     {
         if(PlayerDataManager.Instance.GetFlag("isBoss_Story1"))
         {
@@ -63,6 +63,7 @@ public class Story1Manager : MonoBehaviour
 
         playerInfo.SetActive(false);
 
+
         
     }
 
@@ -73,10 +74,6 @@ public class Story1Manager : MonoBehaviour
 
         //BeforeStageStartをRistenしているものを実行する
         BeforeStageStart.Raise();
-
-
-
-
 
         yield return new WaitForSeconds(3.8f);
 
@@ -109,7 +106,7 @@ public class Story1Manager : MonoBehaviour
             var sequence = DOTween.Sequence();
 
             sequence.AppendInterval(0.6f)   //0-0.6
-                    .Append(camera.transform.DOMove(BossCameraPos.position,12.0f)) //0.6-4.6
+                    .Append(camera.transform.DOMove(BossCameraPos.position,10.0f)) //0.6-10.6
                     .Join(bossInfo.DOFade(1,0.4f));
 
             sequence.InsertCallback(0.6f, () =>
@@ -117,6 +114,11 @@ public class Story1Manager : MonoBehaviour
                 playerController.StopControll(false);
                 bossController.BossStart();
                 AudioManager.Instance.PlayBGM_FromIntroToLoop("BGMボス戦AGG頭","BGMボス戦AGGループ");
+            });
+
+            sequence.InsertCallback(6.6f, () =>
+            {
+                bossController.BossStart();
             });
         };
     }
@@ -152,6 +154,7 @@ public class Story1Manager : MonoBehaviour
     {        
         cameraScroll.StartCoroutine("FadeOut");
 
+        AudioManager.Instance.StopBGM();
         AudioManager.Instance.PlayBGM("BGMゲームオーバー",0.5f);
 
         //Bossにたどり着いていたら選択肢に表示
@@ -177,7 +180,8 @@ public class Story1Manager : MonoBehaviour
 
     public void Click_Back()
     {
-        LoadingManager.Instance.LoadScene("Title",2.0f);
+        PlayerDataManager.Instance.SetFlag("isBoss_Story1",false);
+        LoadingManager.Instance.LoadScene("Title",3.0f);
     }
 
     public void Click_EasyRetry()

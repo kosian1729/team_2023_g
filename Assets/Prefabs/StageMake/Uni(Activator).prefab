@@ -171,7 +171,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -259,7 +259,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -308,6 +308,7 @@ MonoBehaviour:
   hitPower: 1
   bullet: {fileID: 6922357494897684466, guid: 910abac916d4f4849b8f8c78ba0ee3af, type: 3}
   attackNum: 10
+  interval: 4
   openEyeSprite: {fileID: 21300000, guid: 6839cf40c0f988244a835caf916ddc39, type: 3}
   closeEyeSprite: {fileID: 21300000, guid: 93217cbd58330694395943fd0bdc74bd, type: 3}
   noneSprite: {fileID: 21300000, guid: faa2a364506f287408a87a65d47726d2, type: 3}

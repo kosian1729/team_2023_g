@@ -54,12 +54,12 @@ public class MiniMachineController : MonoBehaviour, IDamagable
                 {
                     transform.position += Quaternion.Euler(0,0,-angle) * -Vector3.right * Time.deltaTime *speed;
                 }
-                else if(timer >= timeOffset && timer <= timeOffset + coasterScale*2 )
+                else if(timer >= timeOffset && timer <= timeOffset + 2 * coasterScale )
                 {
                     var phase = (timer - timeOffset)/coasterScale * Mathf.PI;   // 2 * coasterScale 秒で一回転
                     transform.position += Quaternion.Euler(0,0,-angle) * new Vector3((-Mathf.Cos(phase)),Mathf.Sin(phase)) * Time.deltaTime * speed;
                 }
-                else if(timer> timeOffset + coasterScale*2)
+                else if(timer> timeOffset + 2 * coasterScale)
                 {
                     transform.position += Quaternion.Euler(0,0,-angle) * -Vector3.right * Time.deltaTime *speed;
                 }
@@ -69,7 +69,7 @@ public class MiniMachineController : MonoBehaviour, IDamagable
     }
 
     //プレイヤーの弾に当たったとき呼び出される
-    public void AddDamage(int damage)
+    public void AddDamage(int damage, bool obstacle = false)
     {
         hp-=damage;
         if(hp<=0)
