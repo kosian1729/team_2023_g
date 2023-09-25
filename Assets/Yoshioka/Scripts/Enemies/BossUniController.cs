@@ -321,7 +321,7 @@ public class BossUniController : MonoBehaviour, IDamagable
 
 
     //プレイヤーの弾に当たったとき呼び出される
-    public void AddDamage(int damage)
+    public void AddDamage(int damage, bool obstacle = false)
     {
         hp-=damage;
         hp = Mathf.Clamp(hp,0,hp);

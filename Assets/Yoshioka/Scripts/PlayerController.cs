@@ -45,6 +45,12 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     private bool noDamageMode;
 
+    [Header("無敵時間")]
+    public float invincibilityDuration = 1.0f; // 無敵時間（秒）
+
+    private float invincibilityTimer = 0.0f;   // 経過時間を格納するタイマー変数(初期値0秒)
+    private bool isInvincible = false;         // 無敵状態かどうかのフラグ
+
     void Start()
     {
         cam = Camera.main;
@@ -54,17 +60,38 @@ public class PlayerController : MonoBehaviour, IDamagable
         damagePanel.color = Color.clear;
 
         hp = maxHp;
-        heartManager.SetHeart(maxHp,hp);
+        heartManager.SetHeart(maxHp, hp);
         //animator = transform.parent.gameObject.GetComponent<Animator>();
     }
 
     void Update()
     {
-        if(stop) return;
+        if (stop) return;
 
         Move();
         Attack();
         Select();
+
+        //無敵状態フラグがTrueのときに毎フレーム実行
+        if (isInvincible)
+        {
+            //ここに無敵状態のときの処理を書く
+            Debug.Log("無敵状態");
+
+            //毎フレームタイマー変数にTime.deltaTimeを足す
+            invincibilityTimer += Time.deltaTime;
+
+            //タイマーが無敵時間(10秒)を超えたとき
+            if (invincibilityTimer >= invincibilityDuration)
+            {
+                Debug.Log("無敵状態終わり");
+
+                //無敵状態フラグをFalseにする
+                isInvincible = false;
+                //タイマーを0.0秒にリセットする
+                invincibilityTimer = 0.0f;
+            }
+        }
     }
 
     //Playerを、入力に応じた方向へと移動させる。
@@ -75,10 +102,11 @@ public class PlayerController : MonoBehaviour, IDamagable
         float y = Input.GetAxisRaw("WS");
 
         //カメラの端を超えている時、プレイヤーがはみ出ないようにする。
-        var currentPos = transform.localPosition + new Vector3(x*Time.deltaTime*playerSpeed,y*Time.deltaTime*playerSpeed);
+        var currentPos = transform.localPosition + new Vector3(x * Time.deltaTime * playerSpeed, y * Time.deltaTime * playerSpeed);
         var gap = animPosObj.transform.localPosition;
 
         currentPos.x = Mathf.Clamp(currentPos.x, -cam.orthographicSize * 1920/1080 -gap.x, cam.orthographicSize * 1920/1080 -gap.x);
+
 
         if(!canWarp)
         {
@@ -98,22 +126,23 @@ public class PlayerController : MonoBehaviour, IDamagable
         
 
         transform.localPosition = currentPos;
-        
+
     }
 
     void Attack()
     {
         // スペースキーを押している間、一定間隔でbulletを打ち続ける
-        if((Input.GetKey(KeyCode.Space)||Input.GetKey(KeyCode.UpArrow)||Input.GetKey(KeyCode.DownArrow)) && (timer <= 0.0f) && (bulletManager.GetBulletNum()>0))
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)) && (timer <= 0.0f) && (bulletManager.GetBulletNum() > 0))
         {
             AudioManager.Instance.PlaySE("SE攻撃");
 
             Instantiate(bulletManager.GetBulletObj(), new Vector3(transform.position.x + offset_x,transform.position.y), Quaternion.identity);
             bulletManager.ChangeBulletNum(-1,bulletManager.GetSlotNum());
+
             timer = bulletManager.GetBulletInterval(); // 間隔をセット
         }
         // タイマーの値を減らす
-        if(timer > 0.0f)
+        if (timer > 0.0f)
         {
             timer -= Time.deltaTime;
         }
@@ -121,25 +150,28 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     void Select()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             bulletManager.ChangeSlotNum(-1);
         }
-        else if(Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             bulletManager.ChangeSlotNum(1);
         }
     }
 
-    //被ダメ時(回復時)
-    public void AddDamage(int damage)
+    //被ダメ時(回復時）
+    public void AddDamage(int damage, bool obstacle = false)
     {
-        if(noDamageMode) return;
-        
-        hp-=damage;
-        hp = Mathf.Clamp(hp,0,maxHp);
+        if (!obstacle)
+        {
+            if (noDamageMode) return;
+            if (isInvincible) return;
+        }
+        hp -= damage;
+        hp = Mathf.Clamp(hp, 0, maxHp);
 
-        heartManager.SetHeart(maxHp,hp);
+        heartManager.SetHeart(maxHp, hp);
 
         if(damage>0)
         {
@@ -147,13 +179,19 @@ public class PlayerController : MonoBehaviour, IDamagable
             damagePanel.DOFade(0,0.3f).SetEase(Ease.InQuad);
         }
 
-        if(hp<=0)
+        if (hp <= 0)
         {
             //GameOver処理
             GameOver.Raise();
 
             this.gameObject.SetActive(false);
         }
+
+        {
+            //敵の弾に当たった時に無敵状態フラグをTrueにする
+            isInvincible = true;
+        }
+
     }
 
 
