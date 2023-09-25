@@ -11121,6 +11121,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1841706206}
     - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
       propertyPath: heartManager
       value: 
       objectReference: {fileID: 601430620}
@@ -11128,6 +11132,10 @@ PrefabInstance:
       propertyPath: bulletManager
       value: 
       objectReference: {fileID: 1768770153}
+    - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
+      propertyPath: invincibilityDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2514496068112099495, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 1
@@ -11147,6 +11155,10 @@ PrefabInstance:
     - target: {fileID: 3165816684820413584, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8942358792599566500, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8952189187525561075, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
       propertyPath: heartManager

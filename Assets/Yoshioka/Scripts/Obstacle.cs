@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            other.GetComponent<IDamagable>().AddDamage(10);     
+            other.GetComponent<IDamagable>().AddDamage(10,true);     
         }
 
     }

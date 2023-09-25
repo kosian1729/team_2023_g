@@ -4,34 +4,34 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class PlayerController : MonoBehaviour, IDamagable
+public class PlayerController1 : MonoBehaviour, IDamagable
 {
     private Camera cam;
     private GameObject animPosObj;
 
-    [Header("Playerã®ç§»å‹•é€Ÿåº¦")]
+    [Header("Player‚ÌˆÚ“®‘¬“x")]
     [SerializeField] private float playerSpeed;
 
-    [Header("Playerã®ä½“åŠ›")]
+    [Header("Player‚Ì‘Ì—Í")]
     [SerializeField] private int maxHp;
 
-    private int hp;ã€€//Playerã®ç¾åœ¨HP
+    private int hp;@//Player‚ÌŒ»İHP
 
-    private float timer;ã€€//å¼¾ã®ç™ºå°„é–“éš”ç”¨ã®ã‚¿ã‚¤ãƒãƒ¼
+    private float timer;@//’e‚Ì”­ËŠÔŠu—p‚Ìƒ^ƒCƒ}[
 
-    [Header("ç™ºå°„ä½ç½®")]
+    [Header("”­ËˆÊ’u")]
     [SerializeField] private float offset_x;
 
-    [Header("UIã®ãƒãƒ¼ãƒˆã‚’åˆ¶å¾¡ã™ã‚‹ã‚¹ã‚¯ãƒªãƒ—ãƒˆ")]
+    [Header("UI‚Ìƒn[ƒg‚ğ§Œä‚·‚éƒXƒNƒŠƒvƒg")]
     public HeartManager heartManager;
 
-    [Header("Bulletã‚’ç®¡ç†ã™ã‚‹ã‚¹ã‚¯ãƒªãƒ—ãƒˆ")]
+    [Header("Bullet‚ğŠÇ—‚·‚éƒXƒNƒŠƒvƒg")]
     public BulletManager bulletManager;
 
-    [Header("GameOverã‚¤ãƒ™ãƒ³ãƒˆ")]
+    [Header("GameOverƒCƒxƒ“ƒg")]
     public GameEvent GameOver;
 
-    [Header("Bossã‚¤ãƒ™ãƒ³ãƒˆ")]
+    [Header("BossƒCƒxƒ“ƒg")]
     public GameEvent Boss;
 
     public Animator animator;
@@ -41,12 +41,6 @@ public class PlayerController : MonoBehaviour, IDamagable
     private bool stop;
 
     private bool noDamageMode;
-
-    [Header("ç„¡æ•µæ™‚é–“")]
-    public float invincibilityDuration = 1.0f; // ç„¡æ•µæ™‚é–“ï¼ˆç§’ï¼‰
-
-    private float invincibilityTimer = 0.0f;   // çµŒéæ™‚é–“ã‚’æ ¼ç´ã™ã‚‹ã‚¿ã‚¤ãƒãƒ¼å¤‰æ•°(åˆæœŸå€¤0ç§’)
-    private bool isInvincible = false;         // ç„¡æ•µçŠ¶æ…‹ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°
 
     void Start()
     {
@@ -69,36 +63,36 @@ public class PlayerController : MonoBehaviour, IDamagable
         Attack();
         Select();
 
-        //ç„¡æ•µçŠ¶æ…‹ãƒ•ãƒ©ã‚°ãŒTrueã®ã¨ãã«æ¯ãƒ•ãƒ¬ãƒ¼ãƒ å®Ÿè¡Œ
+        //–³“Gó‘Ôƒtƒ‰ƒO‚ªTrue‚Ì‚Æ‚«‚É–ˆƒtƒŒ[ƒ€Às
         if (isInvincible)
         {
-            //ã“ã“ã«ç„¡æ•µçŠ¶æ…‹ã®ã¨ãã®å‡¦ç†ã‚’æ›¸ã
-            Debug.Log("ç„¡æ•µçŠ¶æ…‹");
+            //‚±‚±‚É–³“Gó‘Ô‚Ì‚Æ‚«‚Ìˆ—‚ğ‘‚­
+            Debug.Log("–³“Gó‘Ô");
 
-            //æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ã‚¿ã‚¤ãƒãƒ¼å¤‰æ•°ã«Time.deltaTimeã‚’è¶³ã™
+            //–ˆƒtƒŒ[ƒ€ƒ^ƒCƒ}[•Ï”‚ÉTime.deltaTime‚ğ‘«‚·
             invincibilityTimer += Time.deltaTime;
 
-            //ã‚¿ã‚¤ãƒãƒ¼ãŒç„¡æ•µæ™‚é–“(10ç§’)ã‚’è¶…ãˆãŸã¨ã
+            //ƒ^ƒCƒ}[‚ª–³“GŠÔ(10•b)‚ğ’´‚¦‚½‚Æ‚«
             if (invincibilityTimer >= invincibilityDuration)
             {
-                Debug.Log("ç„¡æ•µçŠ¶æ…‹çµ‚ã‚ã‚Š");
+                Debug.Log("–³“Gó‘ÔI‚í‚è");
 
-                //ç„¡æ•µçŠ¶æ…‹ãƒ•ãƒ©ã‚°ã‚’Falseã«ã™ã‚‹
+                //–³“Gó‘Ôƒtƒ‰ƒO‚ğFalse‚É‚·‚é
                 isInvincible = false;
-                //ã‚¿ã‚¤ãƒãƒ¼ã‚’0.0ç§’ã«ãƒªã‚»ãƒƒãƒˆã™ã‚‹
+                //ƒ^ƒCƒ}[‚ğ0.0•b‚ÉƒŠƒZƒbƒg‚·‚é
                 invincibilityTimer = 0.0f;
             }
         }
     }
 
-    //Playerã‚’ã€å…¥åŠ›ã«å¿œã˜ãŸæ–¹å‘ã¸ã¨ç§»å‹•ã•ã›ã‚‹ã€‚
+    //Player‚ğA“ü—Í‚É‰‚¶‚½•ûŒü‚Ö‚ÆˆÚ“®‚³‚¹‚éB
     void Move()
     {
-        //WASDãŒå…¥åŠ›ã•ã‚Œã‚‹ã¨ã€-1~1ã®æ•´æ•°å€¤ãŒè¿”ã•ã‚Œã‚‹ã€‚ï¼ˆæ–¹å‘æŒ‡å®šç”¨ï¼‰
+        //WASD‚ª“ü—Í‚³‚ê‚é‚ÆA-1~1‚Ì®”’l‚ª•Ô‚³‚ê‚éBi•ûŒüw’è—pj
         float x = Input.GetAxisRaw("AD");
         float y = Input.GetAxisRaw("WS");
 
-        //ã‚«ãƒ¡ãƒ©ã®ç«¯ã‚’è¶…ãˆã¦ã„ã‚‹æ™‚ã€ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒã¯ã¿å‡ºãªã„ã‚ˆã†ã«ã™ã‚‹ã€‚
+        //ƒJƒƒ‰‚Ì’[‚ğ’´‚¦‚Ä‚¢‚éAƒvƒŒƒCƒ„[‚ª‚Í‚İo‚È‚¢‚æ‚¤‚É‚·‚éB
         var currentPos = transform.localPosition + new Vector3(x * Time.deltaTime * playerSpeed, y * Time.deltaTime * playerSpeed);
         var gap = animPosObj.transform.localPosition;
 
@@ -111,16 +105,16 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     void Attack()
     {
-        // ã‚¹ãƒšãƒ¼ã‚¹ã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ã„ã‚‹é–“ã€ä¸€å®šé–“éš”ã§bulletã‚’æ‰“ã¡ç¶šã‘ã‚‹
+        // ƒXƒy[ƒXƒL[‚ğ‰Ÿ‚µ‚Ä‚¢‚éŠÔAˆê’èŠÔŠu‚Åbullet‚ğ‘Å‚¿‘±‚¯‚é
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)) && (timer <= 0.0f) && (bulletManager.GetBulletNum() > 0))
         {
-            AudioManager.Instance.PlaySE("SEæ”»æ’ƒ");
+            AudioManager.Instance.PlaySE("SEUŒ‚");
 
             Instantiate(bulletManager.GetBulletObj(), new Vector3(transform.position.x + offset_x, transform.position.y), Quaternion.Euler(0, 0, -90));
             bulletManager.ChangeBulletNum(-1, bulletManager.GetSlotNum());
-            timer = bulletManager.GetBulletInterval(); // é–“éš”ã‚’ã‚»ãƒƒãƒˆ
+            timer = bulletManager.GetBulletInterval(); // ŠÔŠu‚ğƒZƒbƒg
         }
-        // ã‚¿ã‚¤ãƒãƒ¼ã®å€¤ã‚’æ¸›ã‚‰ã™
+        // ƒ^ƒCƒ}[‚Ì’l‚ğŒ¸‚ç‚·
         if (timer > 0.0f)
         {
             timer -= Time.deltaTime;
@@ -139,10 +133,12 @@ public class PlayerController : MonoBehaviour, IDamagable
         }
     }
 
-    
+    public float invincibilityDuration = 1.0f; // –³“GŠÔi•bj
+    private float invincibilityTimer = 0.0f;   // Œo‰ßŠÔ‚ğŠi”[‚·‚éƒ^ƒCƒ}[•Ï”(‰Šú’l0•b)
+    private bool isInvincible = false;         // –³“Gó‘Ô‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO
 
-    //è¢«ãƒ€ãƒ¡æ™‚
-    public void AddDamage(int damage, bool obstacle = false)
+    //”íƒ_ƒ
+    public void AddDamage(int damage,bool obstacle = false)
     {
         if (!obstacle)
         {
@@ -160,14 +156,14 @@ public class PlayerController : MonoBehaviour, IDamagable
 
         if (hp <= 0)
         {
-            //GameOverå‡¦ç†
+            //GameOverˆ—
             GameOver.Raise();
 
             this.gameObject.SetActive(false);
         }
 
         {
-            //æ•µã®å¼¾ã«å½“ãŸã£ãŸæ™‚ã«ç„¡æ•µçŠ¶æ…‹ãƒ•ãƒ©ã‚°ã‚’Trueã«ã™ã‚‹
+            //“G‚Ì’e‚É“–‚½‚Á‚½‚É–³“Gó‘Ôƒtƒ‰ƒO‚ğTrue‚É‚·‚é
             isInvincible = true;
         }
 
