@@ -23,7 +23,7 @@ public class BossKrakenTentacleController : MonoBehaviour ,IDamagable
         }
     }
 
-    public void AddDamage(int damage)
+    public void AddDamage(int damage, bool obstacle = false)
     {
         hp -= damage;
         OnDamageTentacle.Raise();

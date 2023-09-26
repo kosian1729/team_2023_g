@@ -6,7 +6,7 @@ using System.Linq;
 
 public class StoryManager : MonoBehaviour
 {
-    public GameObject prologueObj, Story1Obj, Story2Obj, Story3Obj, Story4Obj;
+    public GameObject prologueObj, Story1Obj, Story2Obj, Story3Obj, Story4Obj, Story5Obj;
     private int currentStoryNum;
 
     void Start()
@@ -33,6 +33,12 @@ public class StoryManager : MonoBehaviour
         {
             Story4Obj.transform.Find("LockedCover").gameObject.SetActive(false);
             Story4Obj.transform.Find("Play").gameObject.GetComponent<Button>().interactable = true;
+        }
+
+        if(PlayerDataManager.Instance.GetFlag("isClear_Story4"))
+        {
+            Story5Obj.transform.Find("LockedCover").gameObject.SetActive(false);
+            Story5Obj.transform.Find("Play").gameObject.GetComponent<Button>().interactable = true;
         }
     }
 }

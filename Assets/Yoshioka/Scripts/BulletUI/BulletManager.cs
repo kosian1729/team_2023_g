@@ -18,6 +18,7 @@ public class BulletManager : MonoBehaviour
     public RectTransform frame;
     private Vector2 frameOriginalPos;
     public TextMeshProUGUI[] bulletNumText;
+    public Image[] bulletImage;
 
 
     void Start()
@@ -44,6 +45,11 @@ public class BulletManager : MonoBehaviour
         bulletNumText[0].text = "×"+ bulletSlot[0].num;
         bulletNumText[1].text = "×"+ bulletSlot[1].num;
         bulletNumText[2].text = "×"+ bulletSlot[2].num;
+
+        //Image表示
+        bulletImage[0].sprite = bulletSlot[0].sprite;
+        bulletImage[1].sprite = bulletSlot[1].sprite;
+        bulletImage[2].sprite = bulletSlot[2].sprite;
 
         if(sbi.isInfinity_0)
         {

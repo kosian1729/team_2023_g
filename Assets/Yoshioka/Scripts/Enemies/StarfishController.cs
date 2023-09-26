@@ -23,7 +23,7 @@ public class StarfishController : MonoBehaviour, IDamagable
     }
 
     //プレイヤーの弾に当たったとき呼び出される
-    public void AddDamage(int damage)
+    public void AddDamage(int damage, bool obstacle = false)
     {
         hp-=damage;
         if(hp<=0)
