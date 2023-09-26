@@ -60,7 +60,7 @@ public class BossKrakenController : MonoBehaviour, IDamagable
         transform.position = new Vector3(bossCameraPos_x +15.0f, -1.0f);
     }
 
-    public void AddDamage(int damage)
+    public void AddDamage(int damage, bool obstacle = false)
     {
         if(isRage) damage /= 2;
         hp -= damage;

@@ -15,7 +15,10 @@ MonoBehaviour:
   stageName: Learn
   bullet_0: {fileID: 11400000, guid: 2e3e246144906874fa8ee41b6121148d, type: 2}
   num_0: 50
+  isInfinity_0: 1
   bullet_1: {fileID: 11400000, guid: b6a74fabeaa474e42ae1f65eb33f7f04, type: 2}
   num_1: 30
+  isInfinity_1: 1
   bullet_2: {fileID: 11400000, guid: ed1841c7ca9ec50439729b6acd03793d, type: 2}
   num_2: 5
+  isInfinity_2: 1

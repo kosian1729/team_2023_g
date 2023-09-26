@@ -20,12 +20,20 @@ public class PlayerData : ISerializationCallbackReceiver
         "isClear_Story1",
         "isClear_Story2",
         "isClear_Story3",
+        "isClear_Story4",
+        "isClear_Story5",
         "isBoss_Story1",
         "isBoss_Story2",
-        "isBoss_Story3"
+        "isBoss_Story3",
+        "isBoss_Story4",
+        "isBoss_Story5"
         };
 
     bool[] defaultValues = {
+        false,
+        false,
+        false,
+        false,
         false,
         false,
         false,

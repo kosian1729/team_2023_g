@@ -11,33 +11,27 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     [Header("ロストテクノロジー「ワープ」")]
     [SerializeField] private bool canWarp;
-
     [Header("Playerの移動速度")]
     [SerializeField] private float playerSpeed;
-
     [Header("Playerの体力")]
     [SerializeField] private int maxHp;
-
     private int hp;　//Playerの現在HP
 
     private float timer;　//弾の発射間隔用のタイマー
 
     [Header("発射位置")]
     [SerializeField] private float offset_x;
-
     [Header("UIのハートを制御するスクリプト")]
     public HeartManager heartManager;
-
     [Header("Bulletを管理するスクリプト")]
     public BulletManager bulletManager;
-
     [Header("GameOverイベント")]
     public GameEvent GameOver;
-
     [Header("Bossイベント")]
     public GameEvent Boss;
 
     public Animator animator;
+    private SpriteRenderer spriteRnderer;
 
     private Image damagePanel;
 
@@ -55,6 +49,7 @@ public class PlayerController : MonoBehaviour, IDamagable
     {
         cam = Camera.main;
         animPosObj = transform.parent.gameObject;
+        spriteRnderer = GetComponent<SpriteRenderer>();
 
         damagePanel = GameObject.Find("DamagePanel").GetComponent<Image>();
         damagePanel.color = Color.clear;
@@ -81,7 +76,7 @@ public class PlayerController : MonoBehaviour, IDamagable
             //毎フレームタイマー変数にTime.deltaTimeを足す
             invincibilityTimer += Time.deltaTime;
 
-            //タイマーが無敵時間(10秒)を超えたとき
+            //タイマーが無敵時間を超えたとき
             if (invincibilityTimer >= invincibilityDuration)
             {
                 Debug.Log("無敵状態終わり");
@@ -186,12 +181,29 @@ public class PlayerController : MonoBehaviour, IDamagable
 
             this.gameObject.SetActive(false);
         }
-
+        else
         {
             //敵の弾に当たった時に無敵状態フラグをTrueにする
             isInvincible = true;
+            //点滅演出開始
+            StartCoroutine(HitEffect());
+        }
+    }
+
+    IEnumerator HitEffect()
+    {
+        while(isInvincible)
+        {
+            spriteRnderer.enabled = false;
+
+            yield return new WaitForSeconds(0.1f);
+
+            spriteRnderer.enabled = true;
+
+            yield return new WaitForSeconds(0.1f);
         }
 
+        spriteRnderer.enabled = true;
     }
 
 
