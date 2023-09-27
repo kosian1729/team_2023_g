@@ -9,7 +9,7 @@ public class PrologueManager : MonoBehaviour
 {
     public DialogueManager dialogueManager;
     public Image backGround;
-    public Sprite phaseA_sprite,phaseB_sprite;
+    public Sprite phaseA_sprite,phaseB_sprite,phaseC_sprite;
 
     void Start()
     {
@@ -26,13 +26,27 @@ public class PrologueManager : MonoBehaviour
     void PhaseB()
     {
         dialogueManager.OnEndLog -= PhaseB;
-        dialogueManager.OnEndLog += PhaseEnd;
+        dialogueManager.OnEndLog += PhaseC;
         backGround.DOFade(0,0.2f).OnComplete(() => 
         {
             backGround.sprite = phaseB_sprite;
             backGround.DOFade(1,0.4f).SetDelay(1.5f).OnComplete(() =>
             {
                 dialogueManager.StartDialogue(1);
+            });
+        });
+    }
+
+    void PhaseC()
+    {
+        dialogueManager.OnEndLog -= PhaseC;
+        dialogueManager.OnEndLog += PhaseEnd;
+        backGround.DOFade(0,0.2f).OnComplete(() => 
+        {
+            backGround.sprite = phaseC_sprite;
+            backGround.DOFade(1,0.4f).SetDelay(1.5f).OnComplete(() =>
+            {
+                dialogueManager.StartDialogue(2);
             });
         });
     }
