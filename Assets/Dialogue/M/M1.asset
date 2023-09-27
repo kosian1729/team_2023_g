@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a3666c320171141be5ab02bfe925c3, type: 3}
   m_Name: M1
   m_EditorClassIdentifier: 
-  text: 
-  name: 
+  text: "\u3053\u3053\u306F\u95A2\u4FC2\u306A\u3055\u305D\u3046\u3060\u306A"
+  name: "\u30B1\u30A4\u30AA\u30B9"
   sprite: {fileID: 0}
