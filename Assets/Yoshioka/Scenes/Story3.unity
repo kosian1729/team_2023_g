@@ -1361,9 +1361,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 600
+  m_MaxValue: 400
   m_WholeNumbers: 1
-  m_Value: 6
+  m_Value: 400
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4135,7 +4135,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u30AF\u30E9\u30FC\u30B1\u30F3"
+  m_text: "\u66B4\u8D70\u3059\u308B\u30AF\u30E9\u30FC\u30B1\u30F3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 666d90899ef53a24d8cec587714de430, type: 2}
   m_sharedMaterial: {fileID: -8710932741730506980, guid: 666d90899ef53a24d8cec587714de430, type: 2}
@@ -11290,7 +11290,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7586924221778752363}
         m_TargetAssemblyTypeName: BossKrakenController, Assembly-CSharp
-        m_MethodName: AddDamage
+        m_MethodName: TentacleDamage
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11312,7 +11312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f07f334fec3cc847bf3e149365a6ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 500
+  maxHp: 400
   rageSprite: {fileID: 21300000, guid: e910ffa767c47d2418de02f4cb3df6ba, type: 3}
   summonEffect: {fileID: 5694240047652950548, guid: fe7809a3427e15c46b65bed850c603f8, type: 3}
   rageSummonEffect: {fileID: 3347701180410539975, guid: 44db4afe53fcba34990cd293f7ff4e69, type: 3}

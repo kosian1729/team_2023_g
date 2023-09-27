@@ -25,7 +25,12 @@ public class BossMachineController : MonoBehaviour, IDamagable
 
     public GameObject uniAttackBullet;
 
+    public GameObject explosionObj;
+
     public GameObject miniMachine;
+
+    public GameObject energyObj;
+    private GameObject _energyObj;
 
     public GameObject beam;
     private BoxCollider2D beamCol;
@@ -34,6 +39,7 @@ public class BossMachineController : MonoBehaviour, IDamagable
     public Transform sieldOffset;
     public Transform summonOffset;
     public Transform itemOffset;
+    public Transform[] explosionOffsets;
 
     public List<GameObject> itemList = new List<GameObject>();
     private List<GameObject> _itemList = new List<GameObject>();
@@ -58,7 +64,7 @@ public class BossMachineController : MonoBehaviour, IDamagable
     public void BossStart()
     {
         anim.SetInteger("Level",-1);
-        timer = 21.0f;
+        timer = 26.0f;
     }
 
     //Attack animから呼ばれる
@@ -78,6 +84,20 @@ public class BossMachineController : MonoBehaviour, IDamagable
         Instantiate(uniAttackBullet,bulletOffset.position,Quaternion.Euler(0,0,rotate));
     }
 
+    IEnumerator ExplosionCotoutine()
+    {
+        var exObj_1 = Instantiate(explosionObj,explosionOffsets[0].position,Quaternion.identity);
+        exObj_1.transform.localScale = new Vector3(0.6f,0.6f,0.6f);
+        yield return new WaitForSeconds(0.4f);
+
+        var exObj_2 = Instantiate(explosionObj,explosionOffsets[UnityEngine.Random.Range(1,3)].position,Quaternion.identity);
+        exObj_2.transform.localScale = new Vector3(0.9f,0.9f,0.9f);
+        yield return new WaitForSeconds(0.4f);
+
+        var exObj_3 = Instantiate(explosionObj,explosionOffsets[UnityEngine.Random.Range(3,6)].position,Quaternion.identity);
+        exObj_3.transform.localScale = new Vector3(1.2f,1.2f,1.2f);
+    }
+
     public void SummonSield()
     {
         isSield = true;
@@ -91,6 +111,20 @@ public class BossMachineController : MonoBehaviour, IDamagable
     {
         Instantiate(miniMachine,summonOffset.position + new Vector3(0,3.0f,0),Quaternion.identity);
         Instantiate(miniMachine,summonOffset.position + new Vector3(-1.3f,-2.3f,0),Quaternion.identity);
+    }
+
+    public void SummonEnergy()
+    {
+        if(_energyObj == null)
+        {
+            _energyObj = Instantiate(energyObj,transform.position,Quaternion.identity);
+        }
+        else
+        {
+            _energyObj.GetComponent<EnergyController>().StartCoroutine("TripleEnergyAttack");
+        }
+
+        
     }
 
     public void SummonItem()

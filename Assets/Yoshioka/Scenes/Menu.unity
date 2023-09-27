@@ -5079,7 +5079,7 @@ MonoBehaviour:
   Story2Obj: {fileID: 1984756912}
   Story3Obj: {fileID: 264943804}
   Story4Obj: {fileID: 373524817}
-  Story5Obj: {fileID: 0}
+  Story5Obj: {fileID: 1480449724}
 --- !u!4 &1223211494
 Transform:
   m_ObjectHideFlags: 0
@@ -6517,7 +6517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -76, y: 106.999985}
+  m_AnchoredPosition: {x: -76, y: 107}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1704487139

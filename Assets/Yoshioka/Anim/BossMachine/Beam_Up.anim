@@ -767,7 +767,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 2
+  - time: 2.0833333
     functionName: StartBeam
     data: 
     objectReferenceParameter: {fileID: 0}

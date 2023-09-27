@@ -12677,7 +12677,11 @@ PrefabInstance:
       value: BrackScreen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1644852366309391890, guid: 5529128061dd17646853aaa26a6226c4, type: 3}
+    - {fileID: 4897734775210895424, guid: 5529128061dd17646853aaa26a6226c4, type: 3}
+    - {fileID: 5013181713117127995, guid: 5529128061dd17646853aaa26a6226c4, type: 3}
+    - {fileID: 2754961809193266178, guid: 5529128061dd17646853aaa26a6226c4, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6057249453016096748, guid: 5529128061dd17646853aaa26a6226c4, type: 3}
       insertIndex: -1

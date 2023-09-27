@@ -102,7 +102,7 @@ MonoBehaviour:
   rotationSpeed: 0.7
   power: 4
   duration: 15
-  explosionParticle: {fileID: 6787894749218832302, guid: 1c34b8e19dd491a4f93d47785c0394ae, type: 3}
+  explosionParticle: {fileID: 9183574452612413438, guid: 331d72116c46d3a4c816e199722d1a21, type: 3}
 --- !u!70 &7347403109222385653
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -70,7 +70,7 @@ public class Story5Manager : MonoBehaviour
 
     IEnumerator PhaseA()
     {
-        AudioManager.Instance.PlayBGM_FromIntroToLoop("BGM調査頭","BGM調査ループ");   
+        AudioManager.Instance.PlayBGM_FromIntroToLoop("BGM作戦頭","BGM作戦ループ");   
         yield return new WaitForSeconds(0.6f);
 
         //BeforeStageStartをRistenしているものを実行する

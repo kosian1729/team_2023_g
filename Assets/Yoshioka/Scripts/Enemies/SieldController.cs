@@ -22,7 +22,7 @@ public class SieldController : MonoBehaviour, IDamagable
     {
         hp -= damage;
 
-        spriteRenderer.color = new Color(0.5f * (1.0f-(float)hp/(float)maxHp),1,1,0.45f);
+        spriteRenderer.color = new Color(0.5f * (1.0f-(float)hp/(float)maxHp),1,1,0.6f);
 
         if(hp<0)
         {

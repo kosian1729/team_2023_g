@@ -47,7 +47,7 @@ public class MissileController : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0,0,270),rotationSpeed);
         }
 
-        if(transform.position.y < -cam.orthographicSize - 0.3f)
+        if(transform.position.y < -cam.orthographicSize - 0.2f)
         {
             Instantiate(explosionParticle,transform.position,Quaternion.identity);
             Destroy(this.gameObject);
