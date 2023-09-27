@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a3666c320171141be5ab02bfe925c3, type: 3}
   m_Name: Q8
   m_EditorClassIdentifier: 
-  text: 
-  name: 
-  sprite: {fileID: 0}
+  text: "\u305D\u3046\u8003\u3048\u308B\u306E\u304C\u59A5\u5F53\u304B\u3002\u304A\u305D\u3089\u304F\u30CE\u30A2\u306E\u8A00\u3046\u901A\u308A\u3060\u306A\u3002"
+  name: "\u30B1\u30A4\u30AA\u30B9"
+  sprite: {fileID: 21300000, guid: e361ddea73586a2419f0136c1bb0ea73, type: 3}
