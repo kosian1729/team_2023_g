@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: B4
   m_EditorClassIdentifier: 
   text: "\u3042\u3042\u3001\u3044\u308D\u3044\u308D\u3042\u3063\u3066\u306A"
-  name: 
-  sprite: {fileID: 0}
+  name: "\u4E0A\u5B98"
+  sprite: {fileID: 21300000, guid: f16720730058e1348b5364c049a2e7ac, type: 3}

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: "\u53CB\u9054\u304C\u8972\u308F\u308C\u305F\u3093\u3067\u3059\uFF01"
   name: OL
-  sprite: {fileID: 21300000, guid: ff7feccd0f3c84c4a9c1ffe9697143ba, type: 3}
+  sprite: {fileID: 21300000, guid: f93e7807d25424e429d6fe61e210bdd4, type: 3}
