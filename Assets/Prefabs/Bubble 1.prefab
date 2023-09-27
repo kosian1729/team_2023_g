@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletManager: {fileID: 0}
   itemName: SpecialBullet
-  num: 20
+  num: 30
 --- !u!1 &5160579932495768419
 GameObject:
   m_ObjectHideFlags: 0

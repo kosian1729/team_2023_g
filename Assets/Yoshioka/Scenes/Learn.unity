@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CheckScreenPanel: {fileID: 1593053649}
-  playerController: {fileID: 0}
+  playerController: {fileID: 5893685643470042356}
 --- !u!4 &230227872
 Transform:
   m_ObjectHideFlags: 0

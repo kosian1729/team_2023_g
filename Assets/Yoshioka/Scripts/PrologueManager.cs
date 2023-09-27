@@ -18,6 +18,7 @@ public class PrologueManager : MonoBehaviour
         backGround.DOFade(1,1.5f).SetDelay(0.5f).OnComplete(() =>
         {
             dialogueManager.StartDialogue(0);
+            AudioManager.Instance.PlayBGM_FromIntroToLoop("BGM海頭","BGM海ループ");
             dialogueManager.OnEndLog += PhaseB;    
         });
     }
@@ -52,6 +53,7 @@ public class PrologueManager : MonoBehaviour
         PlayerDataManager.Instance.SetFlag("isClear_Prologue",true);
         
         yield return new WaitForSeconds(1.0f);
+        AudioManager.Instance.StopBGM();
         SceneManager.LoadScene("Menu");
     }
 }

@@ -220,4 +220,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletManager: {fileID: 0}
   itemName: SuperBullet
-  num: 3
+  num: 5

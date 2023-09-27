@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour, IDamagable
 
     public Animator animator;
     private SpriteRenderer spriteRnderer;
+    private CapsuleCollider2D collider;
 
     private Image damagePanel;
 
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour, IDamagable
         cam = Camera.main;
         animPosObj = transform.parent.gameObject;
         spriteRnderer = GetComponent<SpriteRenderer>();
+        collider = GetComponent<CapsuleCollider2D>();
 
         damagePanel = GameObject.Find("DamagePanel").GetComponent<Image>();
         damagePanel.color = Color.clear;
@@ -202,6 +204,9 @@ public class PlayerController : MonoBehaviour, IDamagable
 
             yield return new WaitForSeconds(0.1f);
         }
+        collider.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        collider.enabled = true;
 
         spriteRnderer.enabled = true;
     }
