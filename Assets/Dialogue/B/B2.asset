@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a3666c320171141be5ab02bfe925c3, type: 3}
   m_Name: B2
   m_EditorClassIdentifier: 
-  text: "...\u3084\u308B\u3057\u304B\u306A\u3044\u308F\u306D\u3002"
-  name: "\u5973\u6027\u968A\u54E1"
-  sprite: {fileID: 21300000, guid: d62ada78de901f04c84ff07552546d4d, type: 3}
+  text: "\u6570\u65E5\u524D\u306B\u30AA\u30B1\u30A2\u30CE\u30B9\u6D77\u6CBF\u5CB8\u3067\u4E0D\u5BE9\u306A\u7537\u304C\u3044\u308B\u3068\u3044\u3046\u5831\u544A\u304C\u5165\u3063\u305F\u3002\u78BA\u8A8D\u306B\u884C\u3063\u3066\u3082\u3089\u3044\u305F\u3044"
+  name: "\u4E0A\u5B98"
+  sprite: {fileID: 21300000, guid: ff7feccd0f3c84c4a9c1ffe9697143ba, type: 3}
