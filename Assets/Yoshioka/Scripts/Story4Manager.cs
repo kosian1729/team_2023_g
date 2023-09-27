@@ -82,6 +82,8 @@ public class Story4Manager : MonoBehaviour
     public void Clear()
     {
         playerController.StopControll(true);
+        cameraScroll.PouseCameraScroll(true);
+        
         AudioManager.Instance.StopBGM();
 
         dialogueManager.StartDialogue(2);

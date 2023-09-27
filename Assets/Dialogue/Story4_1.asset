@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6263f18c941ee4c8a16dd85219890a, type: 3}
   m_Name: Story4_1
   m_EditorClassIdentifier: 
-  dialogues: []
+  dialogues:
+  - {fileID: 11400000, guid: 28112e11a23356d42a0e1c516c5ad698, type: 2}
+  - {fileID: 11400000, guid: 036469d2b39215f46b146e1fc8807ab9, type: 2}
+  - {fileID: 11400000, guid: 15f0089a02173a54cbcf968527bf00cc, type: 2}

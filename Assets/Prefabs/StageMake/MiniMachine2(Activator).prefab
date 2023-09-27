@@ -76,7 +76,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.1}
@@ -253,13 +253,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6394180031676013539, guid: 2bf1ec5b86852504480ed51837c804e5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2986669572456414152}
-    - targetCorrespondingSourceObject: {fileID: 6394180031676013539, guid: 2bf1ec5b86852504480ed51837c804e5, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8763459067678936832}
     - targetCorrespondingSourceObject: {fileID: 6394180031676013539, guid: 2bf1ec5b86852504480ed51837c804e5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3884696574766626541}
+    - targetCorrespondingSourceObject: {fileID: 6394180031676013539, guid: 2bf1ec5b86852504480ed51837c804e5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 486448942709529404}
   m_SourcePrefab: {fileID: 100100000, guid: 2bf1ec5b86852504480ed51837c804e5, type: 3}
 --- !u!4 &5400036109459647007 stripped
 Transform:
@@ -271,22 +271,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6394180031676013539, guid: 2bf1ec5b86852504480ed51837c804e5, type: 3}
   m_PrefabInstance: {fileID: 333739905516609434}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2986669572456414152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6637494898276779129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe1c7cd3f5fe0e2448ea68386063643d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1.5
-  hp: 6
-  hitPower: 2
-  angle: 0
 --- !u!50 &8763459067678936832
 Rigidbody2D:
   serializedVersion: 4
@@ -382,3 +366,24 @@ PolygonCollider2D:
       - {x: 0.3875, y: 0.17999999}
       - {x: 0.26, y: 0.2775}
   m_UseDelaunayMesh: 0
+--- !u!114 &486448942709529404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637494898276779129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d593d8c558e3fd1449925f73981a326e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.8
+  hp: 4
+  hitPower: 1
+  bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
+  interval: 2
+  angle: 0
+  movePatern: 0
+  coasterScale: 1
+  timeOffset: 2.5

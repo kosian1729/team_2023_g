@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 4
   power: 1
-  duration: 5
+  duration: 6
 --- !u!60 &4795292261107079138
 PolygonCollider2D:
   m_ObjectHideFlags: 0
