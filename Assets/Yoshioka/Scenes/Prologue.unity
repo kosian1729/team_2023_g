@@ -318,7 +318,7 @@ PrefabInstance:
       objectReference: {fileID: 169128932}
     - target: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
       propertyPath: logBlocks.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
       propertyPath: logBlocks.Array.data[0]
@@ -328,6 +328,10 @@ PrefabInstance:
       propertyPath: logBlocks.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: 50dcf9fc422eb8644b57e740e0709b62, type: 2}
+    - target: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
+      propertyPath: logBlocks.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: fbba5b53bbf60cd4bb73dd7ab95e1d55, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -344,6 +348,7 @@ GameObject:
   - component: {fileID: 1006236668}
   - component: {fileID: 1006236667}
   - component: {fileID: 1006236666}
+  - component: {fileID: 1006236669}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -425,6 +430,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1006236669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006236665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &1023851846
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +596,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 1061600207}
   backGround: {fileID: 1023851848}
   phaseA_sprite: {fileID: 21300000, guid: 277cb07e4420cce41b0e53a3747389a9, type: 3}
-  phaseB_sprite: {fileID: 21300000, guid: f5ed4c98a2025f244ab8d8fbe72fffc8, type: 3}
+  phaseB_sprite: {fileID: 21300000, guid: 1537b9c73a88aca4083ab651c0de0b91, type: 3}
+  phaseC_sprite: {fileID: 21300000, guid: f5ed4c98a2025f244ab8d8fbe72fffc8, type: 3}
 --- !u!114 &1061600207 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
