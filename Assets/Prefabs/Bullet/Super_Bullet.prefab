@@ -102,6 +102,7 @@ MonoBehaviour:
   power: 8
   duration: 4
   particleObj: {fileID: 6787894749218832302, guid: 1c34b8e19dd491a4f93d47785c0394ae, type: 3}
+  playExplosionSE: 1
 --- !u!58 &288599144189585596
 CircleCollider2D:
   m_ObjectHideFlags: 0

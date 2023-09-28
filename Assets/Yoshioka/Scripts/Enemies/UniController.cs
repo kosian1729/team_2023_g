@@ -142,6 +142,7 @@ public class UniController : MonoBehaviour, IDamagable
         for(int n = 0; n<attackNum; n++)
         {
             attackAngle = (360/attackNum) * n + offset;
+            AudioManager.Instance.PlaySE("SEウニ発射");
             Instantiate(bullet,this.transform.position,Quaternion.Euler(0,0,attackAngle));
         }
     }

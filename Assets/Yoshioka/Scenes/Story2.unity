@@ -445,7 +445,7 @@ MonoBehaviour:
   resultText: {fileID: 816514757}
   dialogueManager: {fileID: 1516692066}
   BossCameraPos: {fileID: 1643863232}
-  x: 155.8
+  x: 169
 --- !u!1 &79905723
 GameObject:
   m_ObjectHideFlags: 0
@@ -4054,7 +4054,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 3e39b2371f59cf241ab55c8019cbb342, type: 2}
     - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
       propertyPath: maxHp
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
       propertyPath: GameOver
