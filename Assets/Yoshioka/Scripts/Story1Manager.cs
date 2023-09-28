@@ -25,7 +25,7 @@ public class Story1Manager : MonoBehaviour
     public float x;
     private Color screenColor;
 
-    void Awake()
+    void Start()
     {
         if(PlayerDataManager.Instance.GetFlag("isBoss_Story1"))
         {

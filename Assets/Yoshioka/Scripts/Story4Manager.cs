@@ -86,20 +86,15 @@ public class Story4Manager : MonoBehaviour
         
         AudioManager.Instance.StopBGM();
 
-        dialogueManager.StartDialogue(2);
+        AudioManager.Instance.PlayBGM_FromIntroToLoop("BGMリザルト頭","BGMリザルトループ");
 
-        dialogueManager.OnEndLog = () =>{
+        var sequence = DOTween.Sequence();
 
-            AudioManager.Instance.PlayBGM_FromIntroToLoop("BGMリザルト頭","BGMリザルトループ");
-
-            var sequence = DOTween.Sequence();
-
-            sequence.Append(result.DOFade(1,0.2f))
-                    .Join(resultText.transform.DOScale(new Vector3(1,1,1), 0.6f));
+        sequence.Append(result.DOFade(1,0.2f))
+                .Join(resultText.transform.DOScale(new Vector3(1,1,1), 0.6f));
             
-            result.interactable = true;
-            result.blocksRaycasts = true;
-        };
+        result.interactable = true;
+        result.blocksRaycasts = true;
 
         PlayerDataManager.Instance.SetFlag("isClear_Story4",true);
     }

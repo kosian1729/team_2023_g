@@ -158,7 +158,7 @@ public class BossUniController : MonoBehaviour, IDamagable
         for(int n = 0; n<attackNum; n++)
         {
             attackAngle = (360/attackNum) * n + offset;
-            AudioManager.Instance.PlaySE("SEウニ発射");
+            //AudioManager.Instance.PlaySE("SEウニ発射");
             Instantiate(bullet,this.transform.position,Quaternion.Euler(0,0,attackAngle));
         }
     }
@@ -199,7 +199,7 @@ public class BossUniController : MonoBehaviour, IDamagable
         });
 
         sequence.InsertCallback(1.3f,() =>{
-            AudioManager.Instance.PlaySE("SEイーゲル覚醒発射1");
+            //AudioManager.Instance.PlaySE("SEイーゲル覚醒発射1");
             Attack(14,rageBullet);
             eyeSpriteRenderer.sprite = closeEyeSprite;
         });
@@ -209,7 +209,7 @@ public class BossUniController : MonoBehaviour, IDamagable
         });
 
         sequence.InsertCallback(2.3f,() =>{
-            AudioManager.Instance.PlaySE("SEイーゲル覚醒発射2");
+            //AudioManager.Instance.PlaySE("SEイーゲル覚醒発射2");
             Attack(21,rageBullet);
             eyeSpriteRenderer.sprite = closeEyeSprite;
         });
@@ -219,7 +219,7 @@ public class BossUniController : MonoBehaviour, IDamagable
         });
 
         sequence.InsertCallback(3.3f,() =>{
-            AudioManager.Instance.PlaySE("SEイーゲル覚醒発射3");
+            //AudioManager.Instance.PlaySE("SEイーゲル覚醒発射3");
             Attack(28,rageBullet);
             eyeSpriteRenderer.sprite = closeEyeSprite;
         });
