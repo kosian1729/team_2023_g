@@ -533,6 +533,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &89486404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,6 +1677,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &303489991 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3095634760624649286, guid: 854752429c70cec4d944b67ad7dc2999, type: 3}
@@ -1696,6 +1704,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &311565615
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1889,6 +1901,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &381482914 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4273361875203176895, guid: b2788c45ddb07704b972313c7e7b421d, type: 3}
@@ -1912,6 +1928,10 @@ MonoBehaviour:
   bullet: {fileID: 1893795226476331337, guid: 08c8975ca7a081744b7cd5744179fc3e, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &393030705 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1646759398586448587, guid: 8d77690144affd5459bdf68f40751d46, type: 3}
@@ -2012,6 +2032,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &429050786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2108,6 +2132,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 5574bdf06de8a7d46b97821abe8a7ae0, type: 3}
   interval: 5
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &441946616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2576,6 +2604,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &543833254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2749,6 +2781,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 5574bdf06de8a7d46b97821abe8a7ae0, type: 3}
   interval: 5
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &574094857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3450,6 +3486,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &712420745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3545,6 +3585,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &712931544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3702,6 +3746,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &778532973 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3095634760624649286, guid: 854752429c70cec4d944b67ad7dc2999, type: 3}
@@ -3725,6 +3773,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &792626550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4273361875203176895, guid: b2788c45ddb07704b972313c7e7b421d, type: 3}
@@ -3748,6 +3800,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!61 &811617271 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 3318695366523997944, guid: 9752dab3ee7aa6140a920ceb788c0d96, type: 3}
@@ -4266,6 +4322,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &859334149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4913,6 +4973,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 5574bdf06de8a7d46b97821abe8a7ae0, type: 3}
   interval: 5
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &994362068
 GameObject:
   m_ObjectHideFlags: 0
@@ -5102,6 +5166,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!114 &1047671025 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6190741866497834903, guid: 8d77690144affd5459bdf68f40751d46, type: 3}
@@ -5311,6 +5379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 1867827875}
+  cameraScroll: {fileID: 0}
   playerController: {fileID: 1867827876}
   bossController: {fileID: 1930548746}
   BeforeStageStart: {fileID: 11400000, guid: a1a423c9db2af71449dc26c4df7c4fdb, type: 2}
@@ -5325,6 +5394,11 @@ MonoBehaviour:
   dialogueManager: {fileID: 1778893797}
   BossCameraPos: {fileID: 1653370195}
   x: 169
+  screenColor:
+    r: 0
+    g: 0
+    b: 0
+    a: 0
 --- !u!4 &1091892578
 Transform:
   m_ObjectHideFlags: 0
@@ -5356,18 +5430,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1091892577}
-        m_TargetAssemblyTypeName: Story5Manager, Assembly-CSharp
-        m_MethodName: Boss
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      - {m_Target: {fileID: 1091892577}, m_TargetAssemblyTypeName: Story5Manager, Assembly-CSharp, m_MethodName: Boss, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
+    m_CallsDirty: 1
 --- !u!114 &1091892580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5384,18 +5448,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1091892577}
-        m_TargetAssemblyTypeName: Story5Manager, Assembly-CSharp
-        m_MethodName: AfterBoss
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      - {m_Target: {fileID: 1091892577}, m_TargetAssemblyTypeName: Story5Manager, Assembly-CSharp, m_MethodName: AfterBoss, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
+    m_CallsDirty: 1
 --- !u!114 &1091892581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5412,18 +5466,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1091892577}
-        m_TargetAssemblyTypeName: Story5Manager, Assembly-CSharp
-        m_MethodName: GameOver
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      - {m_Target: {fileID: 1091892577}, m_TargetAssemblyTypeName: Story5Manager, Assembly-CSharp, m_MethodName: GameOver, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0}, m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
+    m_CallsDirty: 1
 --- !u!1 &1135222664 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3095634760624649286, guid: 854752429c70cec4d944b67ad7dc2999, type: 3}
@@ -5447,6 +5491,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &1137089706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5550,6 +5598,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &1141301109
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,6 +5851,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!114 &1189118596 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3042439870377046269, guid: 8d77690144affd5459bdf68f40751d46, type: 3}
@@ -5913,6 +5969,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &1192877446
 GameObject:
   m_ObjectHideFlags: 0
@@ -6100,6 +6160,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &1219975607 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3095634760624649286, guid: 854752429c70cec4d944b67ad7dc2999, type: 3}
@@ -6123,6 +6187,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &1248079484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6291,6 +6359,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &1285879163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6987,6 +7059,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &1417986080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7154,6 +7230,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &1430507534
 GameObject:
   m_ObjectHideFlags: 0
@@ -8738,6 +8818,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &1556936969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8833,6 +8917,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &1557272687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9008,6 +9096,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &1593124728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9099,6 +9191,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &1653370194
 GameObject:
   m_ObjectHideFlags: 0
@@ -9164,6 +9260,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 1
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1001 &1667832406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10826,6 +10926,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 5f404f5161b407e479dcac5e832ba965, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!114 &1936282122 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8557909570352199765, guid: 8d77690144affd5459bdf68f40751d46, type: 3}
@@ -11180,6 +11284,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &2039940644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3095634760624649286, guid: 854752429c70cec4d944b67ad7dc2999, type: 3}
@@ -11203,6 +11311,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &2058230756 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3095634760624649286, guid: 854752429c70cec4d944b67ad7dc2999, type: 3}
@@ -11226,6 +11338,10 @@ MonoBehaviour:
   bullet: {fileID: 6436308121985945552, guid: 00d81872515722c42b13faffc952df98, type: 3}
   interval: 1
   isAim: 0
+  player: {fileID: 0}
+  phase: 0
+  timer: 0
+  num: 0
 --- !u!1 &2059193483
 GameObject:
   m_ObjectHideFlags: 0
