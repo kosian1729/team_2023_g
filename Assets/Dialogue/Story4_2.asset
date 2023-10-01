@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Story4_2
   m_EditorClassIdentifier: 
   dialogues:
+  - {fileID: 11400000, guid: 6f23e286853a5ac43b2d951cd48d9832, type: 2}
   - {fileID: 11400000, guid: ac84a3ca18cc2b24481a753806aedb04, type: 2}
   - {fileID: 11400000, guid: 9e09216ae3371e740bce2e3b798b7b44, type: 2}
   - {fileID: 11400000, guid: 61f61378786164d4082873e1f15f4283, type: 2}

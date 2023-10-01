@@ -132,7 +132,7 @@ public class BossSeaDragonController : MonoBehaviour, IDamagable
         Vector3 direction = player.position - this.transform.position;
         for(int n = 3; n>=-3; n--)
         {
-            AudioManager.Instance.PlaySE("SEシードラ丸弧状発射");
+            //AudioManager.Instance.PlaySE("SEシードラ丸弧状発射");
             Instantiate(dragonBreathBullet,this.transform.position,Quaternion.FromToRotation(Vector3.up,Quaternion.Euler(0,0,8*n) * direction));
             yield return new WaitForSeconds(0.25f);
         }

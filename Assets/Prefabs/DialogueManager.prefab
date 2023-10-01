@@ -47,7 +47,10 @@ MonoBehaviour:
   dialogueObj: {fileID: 0}
   logTextZone: {fileID: 0}
   nameTextZone: {fileID: 0}
+  namePanelRect: {fileID: 0}
+  oriNamePanelRect: {x: 0, y: 0}
   charaImageZone: {fileID: 0}
+  charaPanelRect: {fileID: 0}
   sprite_void: {fileID: 21300000, guid: faa2a364506f287408a87a65d47726d2, type: 3}
   logBlocks: []
   delayDuration: 0.05

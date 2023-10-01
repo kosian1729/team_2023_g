@@ -13,9 +13,4 @@ MonoBehaviour:
   m_Name: Story4_3
   m_EditorClassIdentifier: 
   dialogues:
-  - {fileID: 11400000, guid: ac84a3ca18cc2b24481a753806aedb04, type: 2}
-  - {fileID: 11400000, guid: 9e09216ae3371e740bce2e3b798b7b44, type: 2}
-  - {fileID: 11400000, guid: 61f61378786164d4082873e1f15f4283, type: 2}
-  - {fileID: 11400000, guid: 7fee87cc9b49ac7418e3586ed5c974b2, type: 2}
-  - {fileID: 11400000, guid: 83d64f67f6f0c2444a2915e254a48b90, type: 2}
-  - {fileID: 11400000, guid: 73ec2c80dc9143f4db9fd7dd3ee0de13, type: 2}
+  - {fileID: 11400000, guid: 6852701d7c3d6fd41a265b4d7d77f879, type: 2}

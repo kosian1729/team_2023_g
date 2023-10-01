@@ -29,6 +29,12 @@ public class NormalBulletController : MonoBehaviour
         timer += Time.deltaTime;
         if(timer>=duration)
         {
+            if(playExplosionSE)
+            {
+                AudioManager.Instance.PlaySE("SE爆発");
+                Instantiate(particleObj,transform.position,Quaternion.identity);
+            }
+            
             Destroy(this.gameObject);
         }
     }
@@ -53,7 +59,7 @@ public class NormalBulletController : MonoBehaviour
             }
             else
             {
-                AudioManager.Instance.PlaySE("SE弾壁当たった");
+                //AudioManager.Instance.PlaySE("SE弾壁当たった");
             }
            
             Instantiate(particleObj,transform.position,Quaternion.identity);

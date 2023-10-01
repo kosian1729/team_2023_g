@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
     public Animator canvasAnim;
     public GameObject optionPanel;
+    public CanvasGroup versionInfoPanel;
+    private bool isOpenVersionPanel;
+
+    public GameObject CongraturationPanel;
 
     void Start()
     {
@@ -14,6 +19,15 @@ public class MenuManager : MonoBehaviour
         if(!AudioManager.Instance.BGM_audioSource.isPlaying)
         {
            AudioManager.Instance.PlayBGM_FromIntroToLoop("BGM深捜頭","BGM深捜ループ"); 
+        }
+
+        if(PlayerDataManager.Instance.GetFlag("isClear_Story5"))
+        {
+            CongraturationPanel.SetActive(true);
+        }
+        else
+        {
+            CongraturationPanel.SetActive(false);
         }
     }
 
@@ -46,6 +60,23 @@ public class MenuManager : MonoBehaviour
     public void Click_Learn()
     {
         LoadingManager.Instance.LoadScene("Learn",1.0f);
+    }
+
+    public void Click_Version()
+    {
+        //判定反転
+        isOpenVersionPanel = !isOpenVersionPanel;
+
+        if(isOpenVersionPanel)
+        {
+            versionInfoPanel.alpha = 1;
+            versionInfoPanel.blocksRaycasts = true;
+        }
+        else
+        {
+            versionInfoPanel.alpha = 0;
+            versionInfoPanel.blocksRaycasts = false;
+        }
     }
 
     //Debug

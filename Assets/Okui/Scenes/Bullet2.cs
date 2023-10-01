@@ -81,6 +81,7 @@ public class bullet2 : MonoBehaviour, IDamagable
 
     void Attack()
     {
+        if(player == null) return;
         if (isAim)
         {
             Vector3 direction = player.position - this.transform.position;
