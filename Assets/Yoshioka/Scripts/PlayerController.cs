@@ -167,11 +167,15 @@ public class PlayerController : MonoBehaviour, IDamagable
     //被ダメ時(回復時）
     public void AddDamage(int damage, bool obstacle = false)
     {
-        if (!obstacle)
+        if(damage > 0)
         {
-            if (noDamageMode) return;
-            if (isInvincible) return;
+            if (!obstacle)
+            {
+                if (noDamageMode) return;
+                if (isInvincible) return;
+            }
         }
+        
         hp -= damage;
         hp = Mathf.Clamp(hp, 0, maxHp);
 

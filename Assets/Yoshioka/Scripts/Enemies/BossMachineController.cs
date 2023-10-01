@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 using System;
 
 public class BossMachineController : MonoBehaviour, IDamagable
 {
     public int maxHp;
     private int hp;
-    public int hitPower;
+
     private bool isRage;
     private float timer;
     private float itemTimer;
@@ -123,8 +124,6 @@ public class BossMachineController : MonoBehaviour, IDamagable
         {
             _energyObj.GetComponent<EnergyController>().StartCoroutine("TripleEnergyAttack");
         }
-
-        
     }
 
     public void SummonItem()
@@ -217,17 +216,32 @@ public class BossMachineController : MonoBehaviour, IDamagable
 
         if(hp<=0)
         {
-            AfterBoss.Raise();
-            Destroy(this.gameObject);
-        }
-    }
+            if(_energyObj!=null)
+            {
+                _energyObj.GetComponent<IDamagable>().AddDamage(100);
+            }
 
-    //プレイヤーとの衝突時の処理
-    public void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.tag == "Player")
-        {
-            other.GetComponent<IDamagable>().AddDamage(hitPower);
+            anim.enabled = false;
+            var endEx1 = Instantiate(explosionObj,transform.position,Quaternion.identity);
+            endEx1.transform.localScale = new Vector3(3.0f,3.0f,3.0f);
+
+            var endSequence = DOTween.Sequence().SetLink(gameObject);
+
+            endSequence.InsertCallback(0.8f,()=>{
+                var endEx2 = Instantiate(explosionObj,transform.position + new Vector3(1.0f,1.0f,0.0f),Quaternion.identity);
+                endEx2.transform.localScale = new Vector3(2.0f,2.0f,2.0f);
+            });
+
+            endSequence.InsertCallback(2.0f,()=>{
+                var endEx2 = Instantiate(explosionObj,transform.position + new Vector3(0.0f,2.0f,0.0f),Quaternion.identity);
+                endEx2.transform.localScale = new Vector3(4.5f,4.5f,4.5f);
+                
+            });
+
+            endSequence.InsertCallback(2.3f,()=>{
+                AfterBoss.Raise();
+                Destroy(this.gameObject);
+            });
         }
     }
 

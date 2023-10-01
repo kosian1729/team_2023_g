@@ -20,13 +20,6 @@ public class Story4Manager : MonoBehaviour
 
     void Start()
     {
-        //Dialogueパート開始
-        dialogueManager.StartDialogue(0);
-        //Dialogueパートが終了時に呼び出される
-        dialogueManager.OnEndLog = () =>{
-            StartCoroutine(PhaseA());
-        };
-
         cameraScroll = camera.GetComponent<CameraScroll>();
         //blackScreenを透明にする
         blackScreen.alpha = 0;
@@ -44,6 +37,13 @@ public class Story4Manager : MonoBehaviour
         playerController.StopControll(true);
 
         playerInfo.SetActive(false);
+
+        //Dialogueパート開始
+        dialogueManager.StartDialogue(0);
+        //Dialogueパートが終了時に呼び出される
+        dialogueManager.OnEndLog = () =>{
+            StartCoroutine(PhaseA());
+        };
     }
 
     IEnumerator PhaseA()
@@ -86,15 +86,21 @@ public class Story4Manager : MonoBehaviour
         
         AudioManager.Instance.StopBGM();
 
-        AudioManager.Instance.PlayBGM_FromIntroToLoop("BGMリザルト頭","BGMリザルトループ");
+        //Dialogueパート開始
+        dialogueManager.StartDialogue(1);
+        
+        //Dialogueパートが終了時に呼び出される
+        dialogueManager.OnEndLog = () =>{
+            AudioManager.Instance.PlayBGM_FromIntroToLoop("BGMリザルト頭","BGMリザルトループ");
 
-        var sequence = DOTween.Sequence();
+            var sequence = DOTween.Sequence();
 
-        sequence.Append(result.DOFade(1,0.2f))
-                .Join(resultText.transform.DOScale(new Vector3(1,1,1), 0.6f));
+            sequence.Append(result.DOFade(1,0.2f))
+                    .Join(resultText.transform.DOScale(new Vector3(1,1,1), 0.6f));
             
-        result.interactable = true;
-        result.blocksRaycasts = true;
+            result.interactable = true;
+            result.blocksRaycasts = true;
+        };
 
         PlayerDataManager.Instance.SetFlag("isClear_Story4",true);
     }

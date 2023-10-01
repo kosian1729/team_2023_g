@@ -15,3 +15,4 @@ MonoBehaviour:
   text: "\u4ECA\u3069\u308C\u304F\u3089\u3044\u6DF1\u304F\u6F5C\u3063\u305F\u3093\u3060\uFF1F"
   name: "\u30B1\u30A4\u30AA\u30B9"
   sprite: {fileID: 21300000, guid: 3b6bd0c2dbba17f46acf10e08099826f, type: 3}
+  isRight: 1

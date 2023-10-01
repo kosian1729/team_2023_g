@@ -77,20 +77,38 @@ public class PlayerData : ISerializationCallbackReceiver
     {
         Debug.Log("OnAfterDeserialize");
         flag = new Dictionary<string, bool>();
-         // Math.Minで最小値を抽出
+
+        //  初期データ更新
+        for (int d = 0; d!= Math.Min(defaultKey.Length, defaultValues.Length); d++)
+        {
+            flag.Add(defaultKey[d], defaultValues[d]);
+        }
+
+        //  セーブデータで一部上書き
         for (int i = 0; i != Math.Min(keys.Count, values.Count); i++)
         {
-            flag.Add(keys[i], values[i]);
+            flag[keys[i]] = values[i];
         }
     }
 
     public void SetFlag(string flagName, bool state)
     {
-        flag[flagName] = state;
+        if(flag[flagName] != null)
+        {
+            flag[flagName] = state;
+        }
     }
 
     public bool GetFlag(string flagName)
     {
-        return flag[flagName];
+        if(flag[flagName] != null)
+        {
+            return flag[flagName];
+        }
+        else
+        {
+            Debug.Log(flagName +"というフラグが見つかりません。");
+            return false;
+        }
     }
 }

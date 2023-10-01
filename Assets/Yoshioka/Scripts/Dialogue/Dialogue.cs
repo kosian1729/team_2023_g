@@ -14,4 +14,7 @@ public class Dialogue : ScriptableObject
 
     [Header("表示したい立ち絵")]
     public Sprite sprite;
+
+    [Header("立ち絵を右に表示")]
+    public bool isRight;
 }

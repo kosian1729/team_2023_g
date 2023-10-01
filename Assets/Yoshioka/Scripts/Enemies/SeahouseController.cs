@@ -41,8 +41,11 @@ public class SeahouseController : MonoBehaviour, IDamagable
             Destroy(this.gameObject);
         }
 
+        
         player = GameObject.FindWithTag("Player").transform;
-        }
+
+        Destroy(this.gameObject,24.0f);
+    }
 
 
     void Update()
@@ -79,6 +82,8 @@ public class SeahouseController : MonoBehaviour, IDamagable
 
     void Attack()
     {
+        if(player==null) return;
+        
         //playerが自分より右に行くと攻撃をやめる
         if(this.transform.position.x < player.position.x) return;
 

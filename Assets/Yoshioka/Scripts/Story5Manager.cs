@@ -29,22 +29,6 @@ public class Story5Manager : MonoBehaviour
 
     void Start()
     {
-        
-        if(PlayerDataManager.Instance.GetFlag("isBoss_Story5"))
-        {
-            camera.transform.position += new Vector3(x,0,0);
-            StartCoroutine(PhaseA());
-        }
-        else
-        {
-            //Dialogueパート開始
-            dialogueManager.StartDialogue(0);
-            //Dialogueパートが終了時に呼び出される
-            dialogueManager.OnEndLog = () =>{
-                StartCoroutine(PhaseA());
-            };
-        }
-
         cameraScroll = camera.GetComponent<CameraScroll>();
         //blackScreenを透明にする
         blackScreen.alpha = 0;
@@ -65,7 +49,20 @@ public class Story5Manager : MonoBehaviour
 
         playerInfo.SetActive(false);
         
-
+        if(PlayerDataManager.Instance.GetFlag("isBoss_Story5"))
+        {
+            camera.transform.position += new Vector3(x,0,0);
+            StartCoroutine(PhaseA());
+        }
+        else
+        {
+            //Dialogueパート開始
+            dialogueManager.StartDialogue(0);
+            //Dialogueパートが終了時に呼び出される
+            dialogueManager.OnEndLog = () =>{
+                StartCoroutine(PhaseA());
+            };
+        }
     }
 
     IEnumerator PhaseA()
@@ -91,9 +88,6 @@ public class Story5Manager : MonoBehaviour
      
     public void Boss()
     {
-        //Boss遭遇フラグ
-        PlayerDataManager.Instance.SetFlag("isBoss_Story5",true);
-
         playerController.StopControll(true);
        
         cameraScroll.PouseCameraScroll(true);
@@ -124,6 +118,9 @@ public class Story5Manager : MonoBehaviour
                 bossController.BossStart();
             });
         };
+
+        //Boss遭遇フラグ
+        PlayerDataManager.Instance.SetFlag("isBoss_Story5",true);
     }
 
     public void AfterBoss()

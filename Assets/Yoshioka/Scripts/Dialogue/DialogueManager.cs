@@ -10,7 +10,11 @@ public class DialogueManager : MonoBehaviour
     public CanvasGroup dialogueObj;
     public TextMeshProUGUI logTextZone;
     public TextMeshProUGUI nameTextZone;
+    public RectTransform namePanelRect;
+    public Vector2 oriNamePanelRect;
     public Image charaImageZone;
+    public RectTransform charaPanelRect;
+    private Vector2 oriCharaPanelRect;
     public Sprite sprite_void;
     public DialogueBlock[] logBlocks;
 
@@ -31,6 +35,12 @@ public class DialogueManager : MonoBehaviour
     public delegate void OnEndLogDelegate();
     public OnEndLogDelegate OnEndLog;
 
+    void Awake()
+    {
+        oriNamePanelRect = namePanelRect.anchoredPosition;
+        oriCharaPanelRect = charaPanelRect.anchoredPosition;
+    }
+
     //会話をはじめる
     public void StartDialogue(int _logBlockNum)
     {
@@ -44,6 +54,15 @@ public class DialogueManager : MonoBehaviour
         //名前欄
         if(dialogue.name != null)
         {
+            //  名前表示の左右反転
+            if(dialogue.isRight)
+            {
+                namePanelRect.anchoredPosition = new Vector2(-oriNamePanelRect.x,oriNamePanelRect.y);
+            }
+            else
+            {
+                namePanelRect.anchoredPosition = new Vector2(oriNamePanelRect.x,oriNamePanelRect.y);
+            }
             nameTextZone.text = dialogue.name;
         }
         else
@@ -54,6 +73,16 @@ public class DialogueManager : MonoBehaviour
         //立ち絵欄
         if(dialogue.sprite != null)
         {
+            //  立ち絵表示の左右反転
+            if(dialogue.isRight)
+            {
+                charaPanelRect.anchoredPosition = new Vector2(-oriCharaPanelRect.x,oriCharaPanelRect.y);
+            }
+            else
+            {
+                charaPanelRect.anchoredPosition = new Vector2(oriCharaPanelRect.x,oriCharaPanelRect.y);
+            }
+
             charaImageZone.sprite = dialogue.sprite;
             charaImageZone.SetNativeSize();
         }
@@ -106,6 +135,16 @@ public class DialogueManager : MonoBehaviour
             //名前欄
             if(dialogue.name != null)
             {
+                //  名前表示の左右反転
+                if(dialogue.isRight)
+                {
+                    namePanelRect.anchoredPosition = new Vector2(-oriNamePanelRect.x,oriNamePanelRect.y);
+                }
+                else
+                {
+                    namePanelRect.anchoredPosition = new Vector2(oriNamePanelRect.x,oriNamePanelRect.y);
+                }
+
                 nameTextZone.text = dialogue.name;
             }
             else
@@ -116,6 +155,16 @@ public class DialogueManager : MonoBehaviour
             //立ち絵欄
             if(dialogue.sprite != null)
             {
+                //  立ち絵表示の左右反転
+                if(dialogue.isRight)
+                {
+                    charaPanelRect.anchoredPosition = new Vector2(-oriCharaPanelRect.x,oriCharaPanelRect.y);
+                }
+                else
+                {
+                    charaPanelRect.anchoredPosition = new Vector2(oriCharaPanelRect.x,oriCharaPanelRect.y);
+                }
+
                 charaImageZone.sprite = dialogue.sprite;
                 charaImageZone.SetNativeSize();
             }
