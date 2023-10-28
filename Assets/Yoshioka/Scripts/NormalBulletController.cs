@@ -16,6 +16,8 @@ public class NormalBulletController : MonoBehaviour
     [Header("衝突時パーティクル")]
     [SerializeField] private GameObject particleObj;
 
+    public bool playExplosionSE;
+
     private float timer;　//弾の生存時間
 
     void Update()
@@ -27,6 +29,12 @@ public class NormalBulletController : MonoBehaviour
         timer += Time.deltaTime;
         if(timer>=duration)
         {
+            if(playExplosionSE)
+            {
+                AudioManager.Instance.PlaySE("SE爆発");
+                Instantiate(particleObj,transform.position,Quaternion.identity);
+            }
+            
             Destroy(this.gameObject);
         }
     }
@@ -36,11 +44,24 @@ public class NormalBulletController : MonoBehaviour
         if(other.tag == "Enemy")
         {
             other.GetComponent<IDamagable>().AddDamage(power);
+            if(playExplosionSE)
+            {
+                AudioManager.Instance.PlaySE("SE爆発");
+            }
             Instantiate(particleObj,transform.position,Quaternion.identity);
             Destroy(this.gameObject);
         }
         else if(other.tag == "Obstacle")
         {
+            if(playExplosionSE)
+            {
+                AudioManager.Instance.PlaySE("SE爆発");
+            }
+            else
+            {
+                //AudioManager.Instance.PlaySE("SE弾壁当たった");
+            }
+           
             Instantiate(particleObj,transform.position,Quaternion.identity);
             Destroy(this.gameObject);
         }

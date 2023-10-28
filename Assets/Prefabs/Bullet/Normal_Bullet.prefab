@@ -100,8 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 9.5
   power: 1
-  duration: 4
+  duration: 2.5
   particleObj: {fileID: 4248595002282676231, guid: c12921827a63be34fb5ff87d5c922e50, type: 3}
+  playExplosionSE: 0
 --- !u!70 &4094887259079053944
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

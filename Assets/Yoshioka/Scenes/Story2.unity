@@ -445,7 +445,7 @@ MonoBehaviour:
   resultText: {fileID: 816514757}
   dialogueManager: {fileID: 1516692066}
   BossCameraPos: {fileID: 1643863232}
-  x: 155.8
+  x: 169
 --- !u!1 &79905723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1704,9 +1704,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 187898154}
     - target: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
+      propertyPath: namePanelRect
+      value: 
+      objectReference: {fileID: 8243645887032070906}
+    - target: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
       propertyPath: charaImageZone
       value: 
       objectReference: {fileID: 187898152}
+    - target: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
+      propertyPath: charaPanelRect
+      value: 
+      objectReference: {fileID: 8243645887032070905}
     - target: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
       propertyPath: logBlocks.Array.size
       value: 3
@@ -4054,7 +4062,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 3e39b2371f59cf241ab55c8019cbb342, type: 2}
     - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
       propertyPath: maxHp
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2456634925080965588, guid: a7f72e69f07ddfb45b253f36d8d95a3a, type: 3}
       propertyPath: GameOver
@@ -13245,6 +13253,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5efdd0b3b0c80d42bbca0e7f1675b4f, type: 3}
+--- !u!224 &8243645887032070905 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7672152625914710748, guid: f5efdd0b3b0c80d42bbca0e7f1675b4f, type: 3}
+  m_PrefabInstance: {fileID: 8243645887032070904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8243645887032070906 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5143703163950084822, guid: f5efdd0b3b0c80d42bbca0e7f1675b4f, type: 3}
+  m_PrefabInstance: {fileID: 8243645887032070904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8302396186439533166
 MonoBehaviour:
   m_ObjectHideFlags: 0

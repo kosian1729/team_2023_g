@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class bullet2 : MonoBehaviour, IDamagable
 {
-    [Header("“G‚ÌƒXƒs[ƒh")]
-    [Tooltip("•W€’l‚Í1‚Å‚·B")]
+    [Header("ï¿½Gï¿½ÌƒXï¿½sï¿½[ï¿½h")]
+    [Tooltip("ï¿½Wï¿½ï¿½ï¿½lï¿½ï¿½1ï¿½Å‚ï¿½ï¿½B")]
     [SerializeField] private float speed;
 
-    [Header("“G‚Ì‘Ì—Í")]
+    [Header("ï¿½Gï¿½Ì‘Ì—ï¿½")]
     [SerializeField] private int hp;
 
-    [Header("“G‚ÌUŒ‚—ÍiÕ“Ëj")]
+    [Header("ï¿½Gï¿½ÌUï¿½ï¿½ï¿½Íiï¿½Õ“Ëï¿½ï¿½j")]
     [SerializeField] private int hitPower;
 
-    [Header("“G‚ÌUŒ‚’e")]
+    [Header("ï¿½Gï¿½ÌUï¿½ï¿½ï¿½e")]
     [SerializeField] private GameObject bullet;
 
-    [Header("UŒ‚ŠÔŠu")]
+    [Header("ï¿½Uï¿½ï¿½ï¿½ÔŠu")]
     [SerializeField] private float interval;
 
-    [Header("ƒvƒŒƒCƒ„[‚ğ‚Ë‚ç‚Á‚Ä‘Å‚Â‚©")]
+    [Header("ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ë‚ï¿½ï¿½ï¿½Ä‘Å‚Â‚ï¿½")]
     [SerializeField] private bool isAim;
 
     private Transform player;
 
     private int phase;
 
-    private float timer;    //ƒXƒ|[ƒ“‚µ‚Ä‚©‚ç‚ÌŒo‰ßŠÔ
-    private int num; //UŒ‚‚·‚é‚½‚Ñ‚É‰ÁZ
+    private float timer;    //ï¿½Xï¿½|ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ÌŒoï¿½ßï¿½ï¿½ï¿½
+    private int num; //ï¿½Uï¿½ï¿½ï¿½ï¿½ï¿½é‚½ï¿½Ñ‚É‰ï¿½ï¿½Z
 
     void Start()
     {
@@ -37,9 +37,11 @@ public class bullet2 : MonoBehaviour, IDamagable
 
         if (hp <= 0.0f)
         {
-            Debug.Log(this.gameObject.name + "‚Ì‘Ì—Í‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢‚©A0–¢–‚Å‚·B");
+            Debug.Log(this.gameObject.name + "ï¿½Ì‘Ì—Í‚ï¿½ï¿½İ’è‚³ï¿½ï¿½Ä‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½A0ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½B");
             Destroy(this.gameObject);
         }
+
+        Destroy(this.gameObject,15.0f);
 
         player = GameObject.FindWithTag("Player").transform;
     }
@@ -54,7 +56,7 @@ public class bullet2 : MonoBehaviour, IDamagable
         {
             case 1:
                 pos.x -= Time.deltaTime;
-                pos.y += Mathf.Cos(timer) * Time.deltaTime;@//”÷•ª‚·‚é‚Æ•Ï‰»—Ê‚ªCos‚È‚Ì‚ÅAƒTƒCƒ“ƒJ[ƒu‚ğ•`‚¯‚Ü‚·B
+                pos.y += Mathf.Cos(timer) * Time.deltaTime;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ•Ï‰ï¿½ï¿½Ê‚ï¿½Cosï¿½È‚Ì‚ÅAï¿½Tï¿½Cï¿½ï¿½ï¿½Jï¿½[ï¿½uï¿½ï¿½`ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
                 if (timer > 1.8f)
                 {
@@ -64,7 +66,7 @@ public class bullet2 : MonoBehaviour, IDamagable
 
             case 2:
                 pos.x += Time.deltaTime * 0.4f;
-                pos.y += Mathf.Cos(timer) * Time.deltaTime;@//”÷•ª‚·‚é‚Æ•Ï‰»—Ê‚ªCos‚È‚Ì‚ÅAƒTƒCƒ“ƒJ[ƒu‚ğ•`‚¯‚Ü‚·B
+                pos.y += Mathf.Cos(timer) * Time.deltaTime;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ•Ï‰ï¿½ï¿½Ê‚ï¿½Cosï¿½È‚Ì‚ÅAï¿½Tï¿½Cï¿½ï¿½ï¿½Jï¿½[ï¿½uï¿½ï¿½`ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½B
 
                 if (timer > 1.8f + interval * num)
                 {
@@ -79,6 +81,7 @@ public class bullet2 : MonoBehaviour, IDamagable
 
     void Attack()
     {
+        if(player == null) return;
         if (isAim)
         {
             Vector3 direction = player.position - this.transform.position;
@@ -97,18 +100,18 @@ public class bullet2 : MonoBehaviour, IDamagable
 
 
 
-    //ƒvƒŒƒCƒ„[‚Ì’e‚É“–‚½‚Á‚½‚Æ‚«ŒÄ‚Ño‚³‚ê‚é
+    //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ì’eï¿½É“ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ä‚Ñoï¿½ï¿½ï¿½ï¿½ï¿½
     public void AddDamage(int damage, bool obstacle = false)
     {
         hp -= damage;
         if (hp <= 0)
         {
-            //€–S‚Ì‰‰o‚È‚Ç‚ğ‚Â‚¯‚é‚È‚ç‚±‚±
+            //ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Ì‰ï¿½ï¿½oï¿½È‚Ç‚ï¿½ï¿½Â‚ï¿½ï¿½ï¿½È‚ç‚±ï¿½ï¿½
             Destroy(this.gameObject);
         }
     }
 
-    //ƒvƒŒƒCƒ„[‚Æ‚ÌÕ“Ë‚Ìˆ—
+    //ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Æ‚ÌÕ“Ëï¿½ï¿½Ìï¿½ï¿½ï¿½
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")

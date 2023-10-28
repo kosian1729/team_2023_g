@@ -9,6 +9,7 @@ public class ExplosionController : MonoBehaviour
     void Awake()
     {
         collider = GetComponent<CircleCollider2D>();
+        AudioManager.Instance.PlaySE("SE爆発");
     }
 
     void Update()

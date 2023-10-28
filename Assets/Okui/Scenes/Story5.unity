@@ -9796,9 +9796,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1047671026}
     - target: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
+      propertyPath: namePanelRect
+      value: 
+      objectReference: {fileID: 25672213145335874}
+    - target: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
       propertyPath: charaImageZone
       value: 
       objectReference: {fileID: 1047671027}
+    - target: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
+      propertyPath: charaPanelRect
+      value: 
+      objectReference: {fileID: 25672213145335873}
     - target: {fileID: 4481756012819927210, guid: 844777a1eb2113b4ba1d70e778de0eac, type: 3}
       propertyPath: logBlocks.Array.size
       value: 3
@@ -11680,6 +11688,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d77690144affd5459bdf68f40751d46, type: 3}
+--- !u!224 &25672213145335873 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1738290963968753923, guid: 8d77690144affd5459bdf68f40751d46, type: 3}
+  m_PrefabInstance: {fileID: 25672213145335872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &25672213145335874 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3820541804870580489, guid: 8d77690144affd5459bdf68f40751d46, type: 3}
+  m_PrefabInstance: {fileID: 25672213145335872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

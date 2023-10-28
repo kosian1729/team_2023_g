@@ -20,13 +20,6 @@ public class Story4Manager : MonoBehaviour
 
     void Start()
     {
-        //Dialogueパート開始
-        dialogueManager.StartDialogue(0);
-        //Dialogueパートが終了時に呼び出される
-        dialogueManager.OnEndLog = () =>{
-            StartCoroutine(PhaseA());
-        };
-
         cameraScroll = camera.GetComponent<CameraScroll>();
         //blackScreenを透明にする
         blackScreen.alpha = 0;
@@ -44,6 +37,13 @@ public class Story4Manager : MonoBehaviour
         playerController.StopControll(true);
 
         playerInfo.SetActive(false);
+
+        //Dialogueパート開始
+        dialogueManager.StartDialogue(0);
+        //Dialogueパートが終了時に呼び出される
+        dialogueManager.OnEndLog = () =>{
+            StartCoroutine(PhaseA());
+        };
     }
 
     IEnumerator PhaseA()
@@ -86,10 +86,11 @@ public class Story4Manager : MonoBehaviour
         
         AudioManager.Instance.StopBGM();
 
-        dialogueManager.StartDialogue(2);
-
+        //Dialogueパート開始
+        dialogueManager.StartDialogue(1);
+        
+        //Dialogueパートが終了時に呼び出される
         dialogueManager.OnEndLog = () =>{
-
             AudioManager.Instance.PlayBGM_FromIntroToLoop("BGMリザルト頭","BGMリザルトループ");
 
             var sequence = DOTween.Sequence();

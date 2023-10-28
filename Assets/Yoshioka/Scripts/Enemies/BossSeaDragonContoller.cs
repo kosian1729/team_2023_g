@@ -122,6 +122,7 @@ public class BossSeaDragonController : MonoBehaviour, IDamagable
         int p = (maxHp - hp)/30;
         for(int n = 2+p; n>=-2-p; n--)
         {
+            AudioManager.Instance.PlaySE("SEシードラ三角弧状発射");
             Instantiate(dragonBullet,this.transform.position,Quaternion.FromToRotation(Vector3.up,Quaternion.Euler(0,0,6*n) * direction));
         }
     }
@@ -131,6 +132,7 @@ public class BossSeaDragonController : MonoBehaviour, IDamagable
         Vector3 direction = player.position - this.transform.position;
         for(int n = 3; n>=-3; n--)
         {
+            //AudioManager.Instance.PlaySE("SEシードラ丸弧状発射");
             Instantiate(dragonBreathBullet,this.transform.position,Quaternion.FromToRotation(Vector3.up,Quaternion.Euler(0,0,8*n) * direction));
             yield return new WaitForSeconds(0.25f);
         }
@@ -143,6 +145,7 @@ public class BossSeaDragonController : MonoBehaviour, IDamagable
         for(int n = 3+q; n > 0; n--)
         {
             Vector3 direction = player.position - this.transform.position;
+            AudioManager.Instance.PlaySE("SEシードラ三角連打発射");
             Instantiate(dragonRocketBullet,this.transform.position,Quaternion.FromToRotation(Vector3.up,direction));
             yield return new WaitForSeconds(0.6f);
         }

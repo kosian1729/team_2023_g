@@ -131,8 +131,15 @@ public class PlayerController : MonoBehaviour, IDamagable
         // スペースキーを押している間、一定間隔でbulletを打ち続ける
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)) && (timer <= 0.0f) && (bulletManager.GetBulletNum() > 0))
         {
-            AudioManager.Instance.PlaySE("SE攻撃");
-
+            if(bulletManager.GetSlotNum()==2)
+            {
+                AudioManager.Instance.PlaySE("SE大発射");
+            }
+            else
+            {
+                AudioManager.Instance.PlaySE("SE攻撃");
+            }
+            
             Instantiate(bulletManager.GetBulletObj(), new Vector3(transform.position.x + offset_x,transform.position.y), Quaternion.identity);
             bulletManager.ChangeBulletNum(-1,bulletManager.GetSlotNum());
 
@@ -160,11 +167,15 @@ public class PlayerController : MonoBehaviour, IDamagable
     //被ダメ時(回復時）
     public void AddDamage(int damage, bool obstacle = false)
     {
-        if (!obstacle)
+        if(damage > 0)
         {
-            if (noDamageMode) return;
-            if (isInvincible) return;
+            if (!obstacle)
+            {
+                if (noDamageMode) return;
+                if (isInvincible) return;
+            }
         }
+        
         hp -= damage;
         hp = Mathf.Clamp(hp, 0, maxHp);
 

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a3666c320171141be5ab02bfe925c3, type: 3}
   m_Name: K3
   m_EditorClassIdentifier: 
-  text: "\u8ABF\u3079\u3066\u307F\u306A\u3044\u3068\u308F\u304B\u3089\u306A\u3044\u306A\u3002"
+  text: "\u3046\u30FC\u3093\u3001\u8ABF\u3079\u3066\u307F\u306A\u3044\u3068\u308F\u304B\u3089\u306A\u3044\u306A\u3002"
   name: "\u30B1\u30A4\u30AA\u30B9"
   sprite: {fileID: 21300000, guid: 3b6bd0c2dbba17f46acf10e08099826f, type: 3}
+  isRight: 1

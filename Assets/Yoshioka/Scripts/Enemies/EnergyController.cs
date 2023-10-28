@@ -12,6 +12,7 @@ public class EnergyController : MonoBehaviour, IDamagable
 
     void Start()
     {
+        hp = maxHp;
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 

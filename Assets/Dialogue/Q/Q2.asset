@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a3666c320171141be5ab02bfe925c3, type: 3}
   m_Name: Q2
   m_EditorClassIdentifier: 
-  text: 
-  name: 
-  sprite: {fileID: 0}
+  text: "\u3042\u3042\u3001\u5012\u3057\u305F\u3068\u601D\u3046\u305C\u3002\n\u898B\u308D\u3088\u3001\u5468\u308A\u306E\u9B5A\u305F\u3061\u306E\u52D5\u304D\u304C\u843D\u3061\u7740\u3044\u3066\u308B\u3002"
+  name: "\u30B1\u30A4\u30AA\u30B9"
+  sprite: {fileID: 21300000, guid: e361ddea73586a2419f0136c1bb0ea73, type: 3}
+  isRight: 1
